@@ -1,19 +1,17 @@
 require("dotenv").config();
-var express = require('express');
+var express = require("express");
 var router = express.Router();
-var path = require("express");
+var path = require("path");
 var app = express();
+
+var port = process.env.PORT || '3002';
 
 app.use(express.json()); 
 
 //serves our app. from the build directory for routing.
-//app.use(express.static(path.resolve(__dirname, '../client/build')));
-/* GET home page. */
-router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
-});
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
-router.post('/api/send_email', function(req, res,) {
+app.post('/api/send_email', function(req, res) {
     
   res.set("Content-Type", "application/json");
 
@@ -24,5 +22,17 @@ router.post('/api/send_email', function(req, res,) {
   console.log({ email, telnumber, feedback });
 
 })
+
+
+// All remaining requests return the React app, so it can handle routing.
+app.get("*", function(request, response) {
+  response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
+});
+
+
+app.listen(port, function() {
+  console.error(`App is Runing on port ${port}`);
+});
+
 
 module.exports = router;
