@@ -26,7 +26,7 @@ app.post('/api/send_email', function(req, res) {
     if (err) { return res.status(500).send({ msg: err.message }); }
   });
  
- 
+
   //res.send('{ "message":"Sent your email" }');
 
   console.log({ email, telnumber, feedback });
@@ -43,6 +43,5 @@ app.get("*", function(request, response) {
 app.listen(port, function() {
   console.error(`App is Runing on port ${port}`);
 });
-
 
 module.exports = router;
