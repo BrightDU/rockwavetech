@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "dotenv": "^6.0.0",
+    "react-materialize": "^2.6.0",
     "webfontloader": "^1.6.28"
   }
 }

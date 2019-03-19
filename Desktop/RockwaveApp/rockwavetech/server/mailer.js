@@ -1,3 +1,4 @@
+require("dotenv").config();
 var Q = require("q");
 var nodeMailer = require("nodemailer");
 var emailTemplate = require("email-templates");
@@ -6,23 +7,22 @@ var sendMailTransport = require("nodemailer-smtp-transport");
 
 module.exports = {
     _template: null,
-    _transport: nul,
+    _transport: null,
 
     init: function(config){
         var d = Q.defer();
 
-        emailTemplate(config.emailTplsDir, function(err, template){
+        new emailTemplate(config.emailTplsDir, function(err, template){
             if(err){
                 return d.reject(err);
             }
 
             this._template = template;
-            this._transport = nodeMailer.createTransport({ service: 'Sendgrid', auth: { user: smart, pass: pass}})
+            this._transport = nodeMailer.createTransport(process.env.SENDGRID_USERNAME + ':' + process.env.SENDGRID_PASSWORD + '@smtp.gmail.com');
             return d.resolve();
         }.bind(this));
 
         return d.promise;
-
     },
 
     send: function (from, to, subject, text, html) {

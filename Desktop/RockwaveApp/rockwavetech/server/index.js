@@ -1,4 +1,4 @@
-require("dotenv").config();
+
 var express = require("express");
 var router = express.Router();
 var mailer = require("./mailer");
@@ -18,10 +18,10 @@ app.post('/api/send_email', function(req, res) {
 
   const { email, telnumber, feedback } = req.body;
   
-  var locals = { name: "Rockwave Admin", siteName: "Rockwavetech" };
+  var locals = { telnum: telnumber, feeds: feedback };
   
-  mailer.sendMail('no-reply@rockwavetech.com', 'mexcrew55@gmail.com', 'Feedback!', 'feedback', locals).then(function () {
-    res.status(200).send('A welcome email has been sent to ' + 'mexcrew55@gmail.com' + '.');
+  mailer.sendMail(email, 'mexcrew55@gmail.com', 'Feedback!', 'feedback', locals).then(function () {
+    res.status(200).send('{"message":"true"}');
   }, function (err) {
     if (err) { return res.status(500).send({ msg: err.message }); }
   });
