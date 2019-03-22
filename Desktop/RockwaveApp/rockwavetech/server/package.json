@@ -18,7 +18,7 @@
   },
   "cacheDirectories": [
     "node_modules",
-    "client/node_modules"
+    "./client/node_modules"
   ],
   "dependencies": {
     "cookie-parser": "~1.4.3",
