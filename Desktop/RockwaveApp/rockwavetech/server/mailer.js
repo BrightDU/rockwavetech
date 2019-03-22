@@ -18,7 +18,7 @@ module.exports = {
             }
 
             this._template = template;
-            this._transport = nodeMailer.createTransport(process.env.SENDGRID_USERNAME + ':' + process.env.SENDGRID_PASSWORD + '@smtp.gmail.com');
+            this._transport = nodeMailer.createTransport(process.env.SMTP_USERNAME + ':' + process.env.SMTP_PASSWORD + '@smtp.gmail.com');
             return d.resolve();
         }.bind(this));
 
