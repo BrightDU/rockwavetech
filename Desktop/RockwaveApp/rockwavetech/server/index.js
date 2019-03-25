@@ -45,11 +45,3 @@ app.listen(port, function() {
 });
 
 module.exports = router;
-
-
-
-app.listen(port, function() {
-  console.error(`App is Runing on port ${port}`);
-});
-
-module.exports = router;
