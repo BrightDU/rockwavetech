@@ -21,7 +21,7 @@ module.exports = {
             return resolve();
         }.bind(this));
 
-        return d.promise;
+        return promise;
     },
 
     send: function (from, to, subject, text, html) {
