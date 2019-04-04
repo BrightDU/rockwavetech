@@ -1,0 +1,288 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  
+  background-color: rgb(243, 243, 243);
+}
+
+.header {
+  height: 40px;
+  padding-top: 70px;
+  background-color: black;
+}
+
+.nbar {
+  background-color:black;
+  text-align: center;
+}
+
+.wedo {
+  color: white;
+  text-align: center;
+}
+
+/*
+.wedo3.one {
+  color: orange
+}
+
+.wedo3.two {
+  color: #CE3C2D;
+}
+
+.wedo3.three {
+  color: #0083C9;
+}
+*/
+
+.wedo3 {
+  margin-top: 50px;
+}
+
+.section {
+  margin-top: 100px;
+  color: whitesmoke;
+}
+
+.navHeader {
+    float: right;
+}
+
+.item {
+  display: inline-block;
+}
+
+.leftdesc {
+  margin-top: 110px;
+  
+}
+
+
+.rightdesc {
+  background-image: url('/images/descImage.png');
+}
+
+.h1Head {
+  color: white;
+  font-size: 45px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
+}
+
+.h1HeadSmall {
+  font-size: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-style: italic;
+}
+
+.testiContent {
+  color: black;
+}
+
+figure.snip1192 {
+  font-family: 'Raleway', Arial, sans-serif;
+  position: inherit;
+  overflow: hidden;
+  margin: 0 auto;
+  min-width: 220px;
+  max-width: 310px;
+  color: #333;
+  text-align: left;
+  box-shadow: none !important;
+  
+}
+
+figure.snip1192 * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+figure.snip1192 img {
+  max-width: 100%;
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+  margin-bottom: 15px;
+  display: inline-block;
+  z-index: 1;
+  position: relative;
+}
+
+figure.snip1192 blockquote {
+  margin: 0;
+  display: block;
+  border-radius: 8px;
+  position: relative;
+  background-color: #fae1ba;
+  opacity: 0.7;
+  padding: 30px 50px 65px 50px;
+  font-size: 0.8em;
+  font-weight: 500;
+  margin: 0 0 -50px;
+  line-height: 1.6em;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+}
+
+figure.snip1192 blockquote:before,
+figure.snip1192 blockquote:after {
+  font-family: 'FontAwesome';
+  content: "\201C";
+  position: absolute;
+  font-size: 50px;
+  opacity: 0.3;
+  font-style: normal;
+}
+figure.snip1192 blockquote:before {
+  top: 35px;
+  left: 20px;
+}
+figure.snip1192 blockquote:after {
+  content: "\201D";
+  right: 20px;
+  bottom: 35px;
+}
+figure.snip1192 .author {
+  margin: 0;
+  text-transform: uppercase;
+  text-align: center;
+  color: #ffffff;
+}
+figure.snip1192 .author h5 {
+  opacity: 0.8;
+  margin: 0;
+  font-weight: 800;
+}
+figure.snip1192 .author h5 span {
+  font-weight: 400;
+  text-transform: none;
+  display: block;
+}
+
+.clients {
+  font-size: 60px;
+  color: orange;
+  padding-bottom: 70px;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+
+/* About page css */
+.content, p {
+  padding: 150px 0 90px 0;
+}
+
+
+/* ImageGallery */
+.gallery {
+  padding: 50px;
+}
+
+span.banner_txt {
+  color: red;
+  font-weight: bolder;
+}
+
+
+
+/* Contact page css */
+.first {
+  height: 600px;
+}
+
+.testimonal {
+  height: 500px;
+  background-color: rgb(243, 243, 243);
+}
+
+.carouselContent {
+   justify-content: center;
+   max-width: 1000px;
+   margin: 0 auto;
+   text-align: center;
+   align-content: center;
+   background-color: rgb(243, 243, 243);
+}
+
+.carouselContentSmall {
+  margin-top: -100px;
+}
+
+.carouselContentSmall > small {
+  font-style: italic;
+}
+
+/* Footer css */
+.footer {
+   color: whitesmoke;
+   text-align: center;
+   padding-top: 40px;
+}
+
+.footer > .icon {
+  word-spacing: 60px;
+}
+
+.social-icons ul li a {
+  border: 0 none;
+  border-radius: 0;
+  color: #FFF;
+  padding:0px;
+}
+
+.social-icons ul li{
+  display:inline-block;
+  font-size: 20px;
+}
+
+.social-icons ul li a i {
+	letter-spacing:0.8px;
+  padding: 11px 15px;
+   transition: all 0.9s ease 0s;
+  -moz-transition: all 0.9s ease 0s;
+  -webkit-transition: all 0.9s ease 0s;
+  -o-transition: all 0.9s ease 0s;
+}
+
+.fa-facebook:hover {
+  background: #0083C9;
+}
+
+.fa-twitter:hover  {
+	background:#5BBCEC;
+}
+
+.fa-youtube:hover  {
+  background:#CE3C2D;
+}
+
+.fa-dribbble:hover  {
+	background:#90C9DC;
+}
+
+.fa-google-plus:hover  {
+	background:#FF4518;	
+}
+
+.fa-linkedin:hover  {
+	background:#0077B5;	
+}
+
+.fa-phone {
+  color: orange;
+}
+
+.fa-envelope {
+  color: orange;
+}
+
+.adress {
+  color: orange;
+}
+
+.link {
+  color: black;
+}
+
+.link:hover {
+  color: black;
+  text-decoration: none;
+}
