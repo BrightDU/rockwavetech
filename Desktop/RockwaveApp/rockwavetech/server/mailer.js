@@ -2,30 +2,32 @@ require("dotenv").config();
 var nodeMailer = require("nodemailer");
 var emailTemplate = require("email-templates");
 var sendMailTransport = require("nodemailer-smtp-transport");
-var Q = require('q');
+//var Q = require('q');
 
 module.exports = {
     _template: null,
     _transport: null,
 
     init: function(config){
-        var d = Q.defer();
+        //var d = Q.defer();
+       
+          new emailTemplate(config.emailTplsDir, function(err, template){
+            var promise = new Promise((resolve, reject) => {
+                if(err){
+                  return reject(err);
+                }
 
-        new emailTemplate(config.emailTplsDir, function(err, template){
-            if(err){
-                return d.reject(err);
-            }
-
-            this._template = template;
-            this._transport = nodeMailer.createTransport(process.env.SMTP_USERNAME + ':' + process.env.SMTP_PASSWORD + '@smtp.gmail.com');
-            return d.resolve();
-        }.bind(this));
-
-        return d.promise;
-    },
-
+                this._template = template;
+                this._transport = nodeMailer.createTransport(process.env.SMTP_USERNAME + ':' + process.env.SMTP_PASSWORD + '@smtp.gmail.com');
+                  return resolve();
+                });
+                return promise;
+            }.bind(this));
+     
+   },
+         
     send: function (from, to, subject, text, html) {
-        var d = Q.defer();
+        //var d = Q.defer();
         var params = {
           from: from, 
           to: to,
@@ -40,33 +42,33 @@ module.exports = {
         this._transport.sendMail(params, function (err, res) {
           if (err) {
             console.error(err);
-            return  d.reject(err);
+              reject(err);
           } else {
-            return  d.resolve(res);
+              resolve(res);
           }
         });
      
-       return d.promise;
+      // return d.promise;
     },
 
     sendMail: function (from, to, subject, tplName, locals) {
-        var d = Q.defer();
+        //var d = Q.defer();
         var self = this;
         this.init({ emailTplsDir: "email-templates" }).then(function () {
           this._template(tplName, locals, function (err, html, text) {
             if (err) {
               console.error(err);
-              return d.reject(err);
+               reject(err);
             }
      
             self.send(from, to, subject, text, html)
               .then(function (res) {
-                return d.resolve(res);
+                 resolve(res);
               });
           });
         }.bind(this));
      
-        return d.promise;
+        //return d.promise;
     }
      
 };
