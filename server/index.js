@@ -1,7 +1,7 @@
 require("dotenv").config();
+var mailer = require("./mailer");
 var express = require("express");
 var router = express.Router();
-var mailer = require("./mailer");
 var path = require("path");
 var app = express();
 
@@ -10,7 +10,7 @@ var port = process.env.PORT || '3002';
 app.use(express.json()); 
 
 //serves our app. from the build directory for routing.
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+//app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 app.post('/api/send_email', function(req, res) {
     
