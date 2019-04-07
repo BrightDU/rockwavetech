@@ -17,6 +17,7 @@
   "dependencies": {
     "dotenv": "^6.0.0",
     "email-templates": "^5.0.2",
+    "express": "^4.16.0",
     "nodemailer": "^2.7.2",
     "nodemailer-sendmail-transport": "^1.0.2",
     "react-materialize": "^2.6.0",
