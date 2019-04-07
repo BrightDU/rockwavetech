@@ -24,7 +24,7 @@ class ContactForm extends Component {
     }
 
      sendEmail = (email, telnumber, feedback) => {
-        return fetch("https://rockwavetech.herokuapp.com/api/send_email", {
+        return fetch("/api/send_email", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, telnumber, feedback })
