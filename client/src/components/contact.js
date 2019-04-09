@@ -1,6 +1,4 @@
 import React, { Component } from 'react';
-import { LocalForm, Control, Errors } from 'react-redux-form';
-import { Col, Row, Label, Button } from "reactstrap";
 import  MapContainer  from './myMap';
 import  ContactForm  from './myForm';
 

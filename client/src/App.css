@@ -9,6 +9,7 @@ html, body {
   height: 40px;
   padding-top: 70px;
   background-color: black;
+  width:100%;
 }
 
 .nbar {

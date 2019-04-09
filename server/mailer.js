@@ -1,9 +1,10 @@
 require("dotenv").config();
-var nodeMailer = require("nodemailer");
+var nodemailer = require("nodemailer");
 var emailTemplate = require("email-templates");
 var sendMailTransport = require("nodemailer-smtp-transport");
-//var Q = require('q');
 
+//var Q = require('q');
+/*
 module.exports = {
     _template: null,
     _transport: null,
@@ -72,6 +73,11 @@ module.exports = {
     }
      
 };
+*/
+
+  
+
+
 
 
 

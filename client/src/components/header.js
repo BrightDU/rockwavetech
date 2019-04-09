@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
-import { Navbar, NavbarBrand, Nav, NavItem, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import { NavbarBrand, Nav, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Navbar, NavItem } from 'react-materialize';
 import { NavLink } from 'react-router-dom';
 import { Center } from 'react-center';
-import logo from './images/logosmaller.jpg';
+import logo from './images/rocklogo.png';
 
 class Header extends Component {
     constructor(props){
@@ -39,7 +40,9 @@ class Header extends Component {
 
     render(){
     return(
+      
         <div className="header">
+            
             <Navbar dark expand="md" color="black" fixed="top">
                 <div className="container-fluid nbar">
                     <NavbarToggler onClick={this.toggleNav} />
@@ -71,15 +74,16 @@ class Header extends Component {
                         </Nav>
                         <Nav className="ml-auto" navbar>
                            
-                           {/* <NavItem>
+                            <NavItem>
                                 <Button style={{ border: 'orange'}} outline onClick={this.toggleModal}>
                                     <span className="" ></span> Request a Quote
                                 </Button>
-                           </NavItem> */}
+                           </NavItem>
                         </Nav>
                     </Collapse>
                 </div>
-            </Navbar> 
+            </Navbar>
+            
             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                 <ModalHeader toggle={this.toggleModal}>Tell Us about your project</ModalHeader>
                 <ModalBody>

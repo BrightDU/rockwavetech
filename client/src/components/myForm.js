@@ -1,7 +1,5 @@
 import React, { Component } from 'react';
-import { LocalForm, Control, Errors } from 'react-redux-form';
-import { Col, Row, Form, FormGroup, Label, Input, Button, FormText, FormFeedback } from "reactstrap";
-import { Toast } from 'react-materialize';
+import { Col, Row, Form, FormGroup, Label, Input, Button, FormFeedback } from "reactstrap";
 
 class ContactForm extends Component {
     constructor(props){
@@ -24,7 +22,7 @@ class ContactForm extends Component {
     }
 
      sendEmail = (email, telnumber, feedback) => {
-        return fetch("/api/send_email", {
+        return fetch("https://https:rockwavetech.herokuapp.com/api/send_email", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, telnumber, feedback })

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
 import { Parallax, Background } from 'react-parallax';
 import TestimonalCarousel from './testimonalCarousel';
 import consult from './images/consult.png';

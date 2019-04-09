@@ -1,5 +1,8 @@
 require("dotenv").config();
-var mailer = require("./mailer");
+//var mailer = require("./mailer");
+var nodemailer = require("nodemailer");
+var emailTemplate = require("email-templates");
+var sendMailTransport = require("nodemailer-smtp-transport");
 var express = require("express");
 var router = express.Router();
 var path = require("path");
@@ -13,20 +16,32 @@ app.use(express.json());
 //
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 
-app.post('/api/send_email', function(req, res) {
+var transporter = nodemailer.createTransport({
+  service: 'gmail',
+  auth: {
+         user: 'mexcrew55@gmail.com',
+         pass: '7b0f81a3'
+     }
+});
+
+app.post("/api/send_email/", function(req, res) {
     
   res.set("Content-Type", "application/json");
 
   const { email, telnumber, feedback } = req.body;
   
-  var locals = { telnum: telnumber, feeds: feedback };
+  var locals = { from: email, to: "mexcrew55@gmail.com", subject: "ENQUIRES", html: '<div style="backgroundColor:black"><p>' + feedback + '</div></p>' };
+
+ transporter.sendMail(locals, function(err, info){
+      if(err){
+        console.log(err);
+      } else {
+        res.send('{ "message":"Sent your email" }');
+        console.log({ email, telnumber, feedback });
+        console.log(info);
+      }
+  })
   
-  mailer.sendMail(email, 'mexcrew55@gmail.com', 'Feedback!', 'feedback', locals).then(function () {
-    res.status(200).send('{"message":"true"}');
-  }, function (err) {
-    if (err) { return res.status(500).send({ msg: err.message }); }
-  });
- 
 
   //res.send('{ "message":"Sent your email" }');
 
@@ -36,11 +51,11 @@ app.post('/api/send_email', function(req, res) {
 
 
 // All remaining requests return the React app, so it can handle routing.
-app.get("*", function(request, response) {
+{/*app.get("*", function(req, res) {
  // response.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
   const index = path.join(__dirname, 'build', 'index.html');
   res.sendFile(index);
-});
+});*/}
 
 
 app.listen(port, function() {
@@ -48,3 +63,6 @@ app.listen(port, function() {
 });
 
 module.exports = router;
+
+
+
