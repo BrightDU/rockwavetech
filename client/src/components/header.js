@@ -40,7 +40,6 @@ class Header extends Component {
 
     render(){
     return(
-      
         <div className="header">
             
             <Navbar dark expand="md" color="black" fixed="top">
@@ -53,7 +52,7 @@ class Header extends Component {
                         <Nav navbar>
                             <NavItem>
                                 <NavLink className="nav-link" to="/home">
-                                     <span className="navi">Home</span> 
+                                    <span className="navi">Home</span> 
                                 </NavLink>
                             </NavItem>
                             <NavItem>
@@ -73,12 +72,12 @@ class Header extends Component {
                             </NavItem>
                         </Nav>
                         <Nav className="ml-auto" navbar>
-                           
+                        
                             <NavItem>
                                 <Button style={{ border: 'orange'}} outline onClick={this.toggleModal}>
                                     <span className="" ></span> Request a Quote
                                 </Button>
-                           </NavItem>
+                        </NavItem>
                         </Nav>
                     </Collapse>
                 </div>
@@ -102,7 +101,7 @@ class Header extends Component {
                     </Form>
                 </ModalBody>
             </Modal>
-        </div>  
+        </div>    
         );
     }
 }
