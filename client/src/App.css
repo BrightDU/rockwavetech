@@ -1,20 +1,22 @@
 html, body {
   width: 100%;
   height: 100%;
-  
   background-color: rgb(243, 243, 243);
 }
 
 .header {
   height: 40px;
   padding-top: 70px;
-  background-color: black;
-  width:100%;
 }
 
-.nbar {
-  background-color:black;
-  text-align: center;
+.headerr {
+  position: fixed;
+  z-index: 10px;
+}
+
+#nbar {
+  background-color:rgb(226, 10, 10);
+ 
 }
 
 .wedo {
@@ -38,6 +40,7 @@ html, body {
 
 .wedo3 {
   margin-top: 50px;
+  font-size: 40px;
 }
 
 .section {
@@ -60,12 +63,12 @@ html, body {
 
 
 .rightdesc {
-  background-image: url('/images/descImage.png');
+  /*background-image: url('/images/descImage.png');*/
 }
 
 .h1Head {
   color: white;
-  font-size: 45px;
+  font-size: 40px;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif
 }
 
@@ -165,6 +168,16 @@ figure.snip1192 .author h5 span {
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+@media only screen and (min-width: 600px) {
+  .bannerword {
+    font-size: 50px;
+    
+  }
+}
+
+.icons {
+  text-align: center;
+}
 
 /* About page css */
 .content, p {
@@ -277,6 +290,11 @@ span.banner_txt {
 
 .adress {
   color: orange;
+  
+}
+
+.contct {
+  margin-top: 50px;
 }
 
 .link {

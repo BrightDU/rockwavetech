@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
+import { Navbar, NavItem } from "react-materialize";
 import { NavbarBrand, Nav, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
-import { Navbar, NavItem } from 'react-materialize';
 import { NavLink } from 'react-router-dom';
 import { Center } from 'react-center';
 import logo from './images/rocklogo.png';
@@ -40,68 +40,27 @@ class Header extends Component {
 
     render(){
     return(
-        <div className="header">
-            
-            <Navbar dark expand="md" color="black" fixed="top">
-                <div className="container-fluid nbar">
-                    <NavbarToggler onClick={this.toggleNav} />
-                    <NavbarBrand className="mr-auto" href="/">
-                        <img src={logo} width="100px" height="50px" className="img-fluid mb-3"/>
-                    </NavbarBrand>
-                    <Collapse isOpen={this.state.isNavOpen} navbar>
-                        <Nav navbar>
-                            <NavItem>
-                                <NavLink className="nav-link" to="/home">
-                                    <span className="navi">Home</span> 
-                                </NavLink>
+        <div className="fixed-top">
+            <Navbar brand={<img src={logo} width="100px" height="50px" className="img-fluid mb-3" />} alignLinks="right">
+                   <div className="text-center">
+                        <div className="right">
+
+                            <NavItem href="home">
+                                Home
                             </NavItem>
-                            <NavItem>
-                                <NavLink className="navi nav-link" to="/aboutus">
-                                    <span  className="navi"> About </span>
-                                </NavLink>
+                            <NavItem href="aboutus">
+                                About
                             </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to="/gallery">
-                                    <span className="navi">Gallery </span>
-                                </NavLink>
+                            <NavItem href="gallery">
+                                Gallery
                             </NavItem>
-                            <NavItem>
-                                <NavLink className="nav-link" to="/contactus">
-                                    <span className="navi"> Contact</span>
-                                </NavLink>
+                            <NavItem href="contactus">
+                                Contact
                             </NavItem>
-                        </Nav>
-                        <Nav className="ml-auto" navbar>
-                        
-                            <NavItem>
-                                <Button style={{ border: 'orange'}} outline onClick={this.toggleModal}>
-                                    <span className="" ></span> Request a Quote
-                                </Button>
-                        </NavItem>
-                        </Nav>
-                    </Collapse>
-                </div>
-            </Navbar>
-            
-            <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
-                <ModalHeader toggle={this.toggleModal}>Tell Us about your project</ModalHeader>
-                <ModalBody>
-                    <Form onSubmit={this.handleSubmit}>
-                        <FormGroup>
-                            <Label htmlFor="name">Name</Label>
-                            <Input type="text" id="name" name="name" 
-                                placeholder="Your name" innerRef={(input) => this.username = input} />
-                        </FormGroup>
-                        <FormGroup>
-                            <Label htmlFor="password">Project</Label>
-                            <Input type="textarea" id="projectbrief" rows={10} name="projectbrief" 
-                                placeholder="Tell us about your project..." innerRef={(input) => this.projectbrief = input} />
-                        </FormGroup>
-                        <Button type="submit" onClick={this.handleSubmit} value="submit" color="primary">SUBMIT</Button>
-                    </Form>
-                </ModalBody>
-            </Modal>
-        </div>    
+                        </div>
+                    </div>
+            </Navbar>  
+        </div>  
         );
     }
 }

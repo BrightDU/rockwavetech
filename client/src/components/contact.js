@@ -7,7 +7,7 @@ class Contact extends Component {
         
     render(){
         return(
-            <div className="Container-fluid">
+            <div className="Container-fluid contct">
                 <div className="row">
                     <div className="first col-12 col-md">
                       <MapContainer />

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 import traffic from './images/traffic.jpg';
 import aboutimg from './images/aboutImg.jpg';
+import imgcircle from './images/circle_image.jpg';
 
 class About extends Component {
    
@@ -18,7 +19,7 @@ class About extends Component {
                            
                     </div>
                     <div className="col-md-4">
-                        <img src={aboutimg} className="img-fluid rounded-circle" />
+                        <img src={imgcircle} className="img-fluid rounded-circle" />
                     </div>   
                      
                 </div>

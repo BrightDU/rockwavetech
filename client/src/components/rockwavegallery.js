@@ -41,6 +41,7 @@ class RockwaveImageGallery extends React.Component {
         return (
                 <div className="container gallery" style={{
                     display: "block",
+                    marginTop: "30px",
                     minHeight: "1px",
                     width: "100%",
                     border: "1px solid #ddd",

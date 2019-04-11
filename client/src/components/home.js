@@ -16,11 +16,11 @@ class Home extends Component {
     render(){
         const rockstyle = {
     
-            fontSize: '100px',
+            fontSize: '50px',
             fontWeight: '90px',
             textAlign: 'center',
             paddingTop: '170px',
-            fontFamily: 'Comfortaa, cursive',
+            fontFamily: 'Comfortaa, Arial, cursive',
             color: 'orange' 
         }
 
@@ -39,8 +39,8 @@ class Home extends Component {
             <div>
                 
                 <Parallax  bgImage={require('./images/banner3_grey_overlay2.png')}>
-                     <div style={{ minHeight: '600px', position: "relative", zIndex: "", backgroundSize: "contain", backgroundRepeat: "no-repeat" }}>
-                        <div style={rockstyle}>
+                     <div className="bannerword" style={{ minHeight: '600px', position: "relative", zIndex: "", backgroundSize: "contain", backgroundRepeat: "no-repeat", marginTop: "40px", }}>
+                        <div  style={rockstyle}>
                             ROCKWAVE <br/>
                             ENGINEERING
                             <br/>
@@ -53,10 +53,10 @@ class Home extends Component {
 
                 
         
-                <div className="container" style={{ }}>
+                <div className="container">
                     <div className="row">           
                         <div className="col-md-6 rightdesc">
-                            <img src={descImage} className="img-responsive rounded"/>
+                            <img src={descImage} className="img-fluid rounded"/>
                         </div> 
                         <div className="col-md-6 leftdesc ">
                             Rockwave Engineering is an electronic maintenance lab for all kinds of Musical and light equipments. We are enthusiastic about what we do because we delight in creating a condusive atmosphere that is safe for all your sound and lighting equipments.
@@ -68,24 +68,26 @@ class Home extends Component {
                 
                 <Parallax   
                     bgImage={require('./images/repairs1.jpg')}
-                    strength={700}
-                >
+                    strength={700}>
                 
                   <div style={{ height: '100%' }}> 
                     <section className="container">
                         <h1 className="wedo mt-3 display-3">We Do</h1>
-                        <div className="section row">
-                            <div className="col-md-4">
-                                <img src={screw} className="img-responsive ml-4"/>
-                                <h2 className="wedo3 one display-4 col-sm-12">REPAIRS</h2>
-                            </div>
-                            <div className="col-md-4">
-                                <img src={install} className="img-responsive ml-30"/>
-                                <h2 className="wedo3 two display-4">INSTALLATION</h2>
-                            </div>
-                            <div className="col-md-4">
-                                <img src={consult} className="img-responsive ml-10"/>
-                                <h2 className="wedo3 three display-4">CONSULTANCY</h2>
+                        <div className="">
+                            
+                            <div className="section row col-md-12 col-md-offset-2">
+                                <div className="col-md-4 icons">
+                                    <img src={screw} className="img-fluid"/>
+                                    <h3 className="wedo3 one display-4">REPAIRS</h3>
+                                </div>
+                                <div className="col-md-4 icons">
+                                    <img src={install} className="img-fluid"/>
+                                    <h3 className="wedo3 two display-4">INSTALLATION</h3>
+                                </div>
+                                <div className="col-md-4 icons">
+                                    <img src={consult} className="img-fluid"/>
+                                    <h3 className="wedo3 three display-4">CONSULTANCY</h3>
+                                </div>
                             </div>
                         </div>
                     </section> 
@@ -113,17 +115,17 @@ class Home extends Component {
                     </div>
                     <div className="row">
                        
-                            <div className="col-md-3">
-                                <img src={rhogic_logo} />
+                            <div className="col-md-3 icons">
+                                <img src={rhogic_logo} className="img-fluid" />
                             </div>                            
-                            <div className="col-md-3">
-                                <img src={lfc_logo} />
+                            <div className="col-md-3 icons">
+                                <img src={lfc_logo} className="img-fluid" />
                             </div>
-                            <div className="col-md-3">
-                                <img src={obum_logo} />
+                            <div className="col-md-3 icons">
+                                <img src={obum_logo} className="img-fluid" />
                             </div>
-                            <div className="col-md-3">
-                                <img src={iam_logo} />
+                            <div className="col-md-3 icons">
+                                <img src={iam_logo} className="img-fluid"/>
                             </div>
                         
                     </div>
