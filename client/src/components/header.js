@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Navbar, NavItem } from "react-materialize";
-import { NavbarBrand, Nav, NavbarToggler, Collapse, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
+import { Navbar } from "react-materialize";
+import { NavbarBrand, NavItem, Nav, Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Input, Label } from 'reactstrap';
 import { NavLink } from 'react-router-dom';
 import { Center } from 'react-center';
 import logo from './images/rocklogo.png';
+
 
 class Header extends Component {
     constructor(props){
@@ -39,26 +39,37 @@ class Header extends Component {
 
 
     render(){
+        const bgColor = {
+            backgroundColor: "black",
+            display: "inline-block"
+        }
     return(
-        <div className="fixed-top">
-            <Navbar brand={<img src={logo} width="100px" height="50px" className="img-fluid mb-3" />} alignLinks="right">
-                   <div className="text-center">
-                        <div className="right">
-
-                            <NavItem href="home">
-                                Home
-                            </NavItem>
-                            <NavItem href="aboutus">
-                                About
-                            </NavItem>
-                            <NavItem href="gallery">
-                                Gallery
-                            </NavItem>
-                            <NavItem href="contactus">
-                                Contact
-                            </NavItem>
-                        </div>
-                    </div>
+        <div className="fixed-top" >
+            <Navbar style={bgColor} brand={<img src={logo} width="100px" height="50px" className="img-fluid mb-3" />} alignLinks="right">
+                 
+                    <Nav className="right">
+                        <NavItem>
+                            <NavLink className="nav-link" to="/home">
+                                <span className="linkk">Home </span>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className="nav-link" to="/aboutus">
+                                <span className="linkk">About</span>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className="nav-link" to="/gallery">
+                                <span className="linkk">Gallery </span>
+                            </NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink className="nav-link" to="/contactus">
+                                <span className="linkk">Contact </span>
+                            </NavLink>
+                        </NavItem>  
+                    </Nav> 
+               
             </Navbar>  
         </div>  
         );
