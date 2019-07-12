@@ -22,7 +22,7 @@ class ContactForm extends Component {
     }
 
      sendEmail = (email, telnumber, feedback) => {
-        return fetch("http://localhost:3002/api/send_email", {
+        return fetch("http://localhost:8081/api/send_email", {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ email, telnumber, feedback })
