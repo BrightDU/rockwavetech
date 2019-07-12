@@ -1,7 +1,4 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import traffic from './images/traffic.jpg';
-import aboutimg from './images/aboutImg.jpg';
 import imgcircle from './images/circle_image.jpg';
 
 class About extends Component {

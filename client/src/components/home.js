@@ -1,45 +1,44 @@
 import React, { Component } from 'react';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 import TestimonalCarousel from './testimonalCarousel';
 import consult from './images/consult.png';
 import screw from './images/screw.png';
 import install from './images/install.png';
 import descImage from './images/descImage.png';
-import lfc_logo from './images/lfc_logo.png';
-import iam_logo from './images/iam.png';
-import obum_logo from './images/obum.png';
-import rhogic_logo from './images/rhogic.png';
-import { Carousel } from 'react-responsive-carousel';
+import { Loading } from './loadingComponent';
+import  ClientsComponent  from './clientsComponent';
+
+
+const rockstyle = {
+    fontSize: '50px',
+    fontWeight: '90px',
+    textAlign: 'center',
+    paddingTop: '170px',
+    fontFamily: ' Comfortaa, Arial, cursive',
+    color: 'orange' 
+}
+
+const hrStyle = {
+    backgroundColor: 'orange',
+    width: 200
+}
+
+const tesimonalBg = {
+    backgroundColor: '#ff9900',
+    position: 'relative',
+    height: '100%'
+}
+
 
 class Home extends Component {
-   
-    render(){
-        const rockstyle = {
     
-            fontSize: '50px',
-            fontWeight: '90px',
-            textAlign: 'center',
-            paddingTop: '170px',
-            fontFamily: 'Comfortaa, Arial, cursive',
-            color: 'orange' 
-        }
-
-        const hrStyle = {
-            backgroundColor: 'orange',
-            width: 200
-        }
-
-        const tesimonalBg = {
-            backgroundColor: '#ff9900',
-            position: 'relative',
-            height: '100%'
-        }
-
+    render(){
+       
         return(
-            <div>
-                
+            <div> 
+                <Loading />
                 <Parallax  bgImage={require('./images/banner3_grey_overlay2.png')}>
-                     <div className="bannerword" style={{ minHeight: '600px', position: "relative", zIndex: "", backgroundSize: "contain", backgroundRepeat: "no-repeat", marginTop: "40px", }}>
+                        <div className="bannerword" style={{ minHeight: '600px', position: "relative", zIndex: "", backgroundSize: "contain", backgroundRepeat: "no-repeat", marginTop: "40px", }}>
                         <div  style={rockstyle}>
                             ROCKWAVE <br/>
                             ENGINEERING
@@ -47,8 +46,8 @@ class Home extends Component {
                             <h3>The Sound Clinic</h3>
                             <hr style={hrStyle}/>
                         </div>
-                     </div>
-                     
+                        </div>
+                        
                 </Parallax>
 
                 
@@ -70,7 +69,7 @@ class Home extends Component {
                     bgImage={require('./images/repairs1.jpg')}
                     strength={700}>
                 
-                  <div style={{ height: '100%' }}> 
+                    <div style={{ height: '100%' }}> 
                     <section className="container">
                         <h1 className="wedo mt-3 display-3">We Do</h1>
                         <div className="">
@@ -91,11 +90,11 @@ class Home extends Component {
                             </div>
                         </div>
                     </section> 
-                  </div>
+                    </div>
                 </Parallax>
 
                 <Parallax>
-                     <div style={{ minHeight: '100px', position: "relative", zIndex: "10", backgroundSize: "contain", backgroundRepeat: "no-repeat" }} />
+                        <div style={{ minHeight: '100px', position: "relative", zIndex: "10", backgroundSize: "contain", backgroundRepeat: "no-repeat" }} />
                 </Parallax>
 
                 <div className="testimonal" style={tesimonalBg}>
@@ -107,33 +106,20 @@ class Home extends Component {
 
                 </div>
 
-                 <div className="container" style={{ minHeight: '100px', padding: '50px 0 100px 0' }}>
+                    <div className="container" style={{ minHeight: '100px', padding: '50px 0 100px 0' }}>
                     <div className="clients">
                         <center>
                             Our Clients
                         </center>
                     </div>
                     <div className="row">
-                       
-                            <div className="col-md-3 icons">
-                                <img src={rhogic_logo} className="img-fluid" />
-                            </div>                            
-                            <div className="col-md-3 icons">
-                                <img src={lfc_logo} className="img-fluid" />
-                            </div>
-                            <div className="col-md-3 icons">
-                                <img src={obum_logo} className="img-fluid" />
-                            </div>
-                            <div className="col-md-3 icons">
-                                <img src={iam_logo} className="img-fluid"/>
-                            </div>
-                        
+                        <ClientsComponent />
                     </div>
-                 </div>
+                    </div>
             </div>
-       );
-    }
-}
+        );
 
+    }   
+}
 
 export default Home;

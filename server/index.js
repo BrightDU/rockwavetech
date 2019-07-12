@@ -19,8 +19,8 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 var transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-         user: 'mexcrew55@gmail.com',
-         pass: '7b0f81a3'
+         user: 'brightmailgent',
+         pass: '6B0F81@9'
      }
 });
 
@@ -30,7 +30,7 @@ app.post("/api/send_email/", function(req, res) {
 
   const { email, telnumber, feedback } = req.body;
   
-  var locals = { from: email, to: "mexcrew55@gmail.com", subject: "ENQUIRES", html: '<div style="backgroundColor:black"><p>' + feedback + '</div></p>' };
+  var locals = { from: email, to: "brightmailgent@gmail.com", subject: "ENQUIRES", html: '<div style="backgroundColor:black"><p style="color:red">' + feedback + '</div></p>' };
 
  transporter.sendMail(locals, function(err, info){
       if(err){

@@ -4,16 +4,6 @@ html, body {
   background-color: rgb(243, 243, 243);
 }
 
-.header {
-  height: 40px;
-  padding-top: 70px;
-}
-
-.headerr {
-  position: fixed;
-  z-index: 10px;
-}
-
 #nbar {
   background-color:rgb(226, 10, 10); 
 }
@@ -41,6 +31,9 @@ html, body {
 .wedo3 {
   margin-top: 50px;
   font-size: 40px;
+}
+.con {
+  background-color: black;
 }
 
 .section {

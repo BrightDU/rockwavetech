@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import ReactDOM from 'react-dom';
-import { Parallax, Background } from 'react-parallax';
+import { Parallax } from 'react-parallax';
 
 class Footer extends Component {
     constructor(props){
