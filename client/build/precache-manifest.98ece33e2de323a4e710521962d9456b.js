@@ -4,7 +4,7 @@ self.__precacheManifest = [
     "url": "/static/media/iam.83b6a914.jpg"
   },
   {
-    "revision": "3501ba4e275ef5a9f8cc",
+    "revision": "83617a73b2d4e12bf76c",
     "url": "/static/css/main.51fc8561.chunk.css"
   },
   {
@@ -12,12 +12,12 @@ self.__precacheManifest = [
     "url": "/static/js/runtime~main.fdfcfda2.js"
   },
   {
-    "revision": "f76537f2aa3419e7633a0a323dbe0a61",
-    "url": "/static/media/traffic.f76537f2.jpg"
+    "revision": "83c1ba74ea143c41c17400edf6de65c4",
+    "url": "/static/media/repairs1.83c1ba74.jpg"
   },
   {
-    "revision": "0b3b23265dd19d28a5ad",
-    "url": "/static/js/2.0b3b2326.chunk.js"
+    "revision": "9ca93e6e73431722fcd2",
+    "url": "/static/js/2.9ca93e6e.chunk.js"
   },
   {
     "revision": "c84d5ba6aab4d6a47092165e2b1082e4",
@@ -60,8 +60,8 @@ self.__precacheManifest = [
     "url": "/static/media/getm.81ee9fe0.jpg"
   },
   {
-    "revision": "3501ba4e275ef5a9f8cc",
-    "url": "/static/js/main.3501ba4e.chunk.js"
+    "revision": "83617a73b2d4e12bf76c",
+    "url": "/static/js/main.83617a73.chunk.js"
   },
   {
     "revision": "394bb7fd90df305ce96c38eaefd03f07",
@@ -84,16 +84,20 @@ self.__precacheManifest = [
     "url": "/static/media/rhogic.bc02e30b.png"
   },
   {
+    "revision": "e809bebf6dbcf8df2913dee69506dd73",
+    "url": "/static/media/prixair.e809bebf.png"
+  },
+  {
     "revision": "7db83753cd1f326c0fd7c594ebcbab76",
     "url": "/static/media/circle_image.7db83753.jpg"
   },
   {
-    "revision": "fee66e712a8a08eef5805a46892932ad",
-    "url": "/static/media/fontawesome-webfont.fee66e71.woff"
-  },
-  {
     "revision": "af7ae505a9eed503f8b8e6982036873e",
     "url": "/static/media/fontawesome-webfont.af7ae505.woff2"
+  },
+  {
+    "revision": "fee66e712a8a08eef5805a46892932ad",
+    "url": "/static/media/fontawesome-webfont.fee66e71.woff"
   },
   {
     "revision": "674f50d287a8c48dc19ba404d20fe713",
@@ -112,15 +116,11 @@ self.__precacheManifest = [
     "url": "/static/media/banner3_grey_overlay2.480e2d9f.png"
   },
   {
-    "revision": "83c1ba74ea143c41c17400edf6de65c4",
-    "url": "/static/media/repairs1.83c1ba74.jpg"
+    "revision": "9ca93e6e73431722fcd2",
+    "url": "/static/css/2.8282013f.chunk.css"
   },
   {
-    "revision": "0b3b23265dd19d28a5ad",
-    "url": "/static/css/2.b2793cf2.chunk.css"
-  },
-  {
-    "revision": "c459d7b1f88667d0158abb066e7bdb53",
+    "revision": "0b60c12b050b59675b3b9140204ed8f5",
     "url": "/index.html"
   }
 ];
