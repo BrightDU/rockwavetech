@@ -8,7 +8,6 @@ import descImage from './images/descImage.png';
 import { Loading } from './loadingComponent';
 import  ClientsComponent  from './clientsComponent';
 
-
 const rockstyle = {
     fontSize: '50px',
     fontWeight: '90px',
@@ -36,7 +35,7 @@ class Home extends Component {
        
         return(
             <div> 
-                <Loading />
+            
                 <Parallax  bgImage={require('./images/banner3_grey_overlay2.png')}>
                         <div className="bannerword" style={{ minHeight: '600px', position: "relative", zIndex: "", backgroundSize: "contain", backgroundRepeat: "no-repeat", marginTop: "40px", }}>
                         <div  style={rockstyle}>
