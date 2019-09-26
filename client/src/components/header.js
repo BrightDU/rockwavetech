@@ -76,6 +76,11 @@ class Header extends Component {
                         <span className="linkk">Contact </span>
                     </NavLink>
                 </NavItem>
+                <NavItem>
+                    <NavLink className="nav-link" to="#">
+                    <span className="linkk">| </span><span className="linkk"> Login </span>
+                    </NavLink>
+                </NavItem>
                 </Nav>
             </Collapse>
             </div>

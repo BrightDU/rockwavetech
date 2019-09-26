@@ -1,6 +1,6 @@
 {
-    "name": "",
-    "short_name": "",
+    "name": "The Sound Clinic",
+    "short_name": "Rockwavetech",
     "icons": [
         {
             "src": "/android-chrome-72x72.png",
@@ -8,7 +8,10 @@
             "type": "image/png"
         }
     ],
-    "theme_color": "#ffffff",
-    "background_color": "#ffffff",
-    "display": "standalone"
+    "theme_color": "#ff9900",
+    "background_color": "#ff9900",
+    "display": "standalone",
+    "orientation": "portrait",
+    "Scope": "/",
+    "start_url": "/"
 }
