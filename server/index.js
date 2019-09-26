@@ -12,7 +12,9 @@ var app = express();
 var port = process.env.PORT || '3002';
 
 //sets the client origin
-app.use(cors({})); 
+app.use(cors({
+  origin: "http://localhost:3000/contactus"
+})); 
 
 app.use(express.json()); 
 
