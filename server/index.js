@@ -17,7 +17,6 @@ app.use(cors({}));
 app.use(express.json()); 
 
 //serves our app. from the build directory for routing.
-//
 app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 
