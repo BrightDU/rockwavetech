@@ -12,7 +12,7 @@ var app = express();
 var port = process.env.PORT || '3002';
 
 //sets all origin
-app.use(cors()); 
+app.use(cors({})); 
 
 app.use(express.json()); 
 
