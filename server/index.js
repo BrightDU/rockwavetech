@@ -4,17 +4,22 @@ var nodemailer = require("nodemailer");
 var emailTemplate = require("email-templates");
 var sendMailTransport = require("nodemailer-smtp-transport");
 var express = require("express");
+var cors = require("cors");
 var router = express.Router();
 var path = require("path");
 var app = express();
 
 var port = process.env.PORT || '3002';
 
+//sets the client origin
+app.use(cors({})); 
+
 app.use(express.json()); 
 
 //serves our app. from the build directory for routing.
 //
-app.use(express.static(path.resolve(__dirname, "../client/build")));
+//app.use(express.static(path.resolve(__dirname, "../client/build")));
+
 
 var transporter = nodemailer.createTransport({
   service: 'gmail',
@@ -30,7 +35,7 @@ app.post("/api/send_email/", function(req, res) {
 
   const { email, telnumber, feedback } = req.body;
   
-  var locals = { from: email, to: "rockwaveengineering@gmail.com", subject: "ENQUIRES", html: '<div style="backgroundColor:black"><p style="color:black">' + feedback + '</div></p>' };
+  var locals = { from: email, to: "mexcrew55@gmail.com", subject: "ENQUIRES", html: '<div style="background-color:#f0f0f0"><p style="color:black">' + feedback + '</div></p>' };
 
  transporter.sendMail(locals, function(err, info){
       if(err){
