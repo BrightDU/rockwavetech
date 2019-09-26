@@ -11,10 +11,8 @@ var app = express();
 
 var port = process.env.PORT || '3002';
 
-//sets the client origin
-app.use(cors({
-  origin: "https://rockwavetech.com/contactus"
-})); 
+//sets all origin
+app.use(cors()); 
 
 app.use(express.json()); 
 
