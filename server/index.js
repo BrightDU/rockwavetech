@@ -18,7 +18,7 @@ app.use(express.json());
 
 //serves our app. from the build directory for routing.
 //
-//app.use(express.static(path.resolve(__dirname, "../client/build")));
+app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 
 var transporter = nodemailer.createTransport({
