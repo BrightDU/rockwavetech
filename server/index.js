@@ -13,7 +13,7 @@ var port = process.env.PORT || '3002';
 
 //sets all origin
 app.use(cors({
-  origin: "http://localhost:3000"
+  origin: "https://rockwavetech.com"
 }));
 
 app.use(express.json()); 
