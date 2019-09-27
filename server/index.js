@@ -12,10 +12,9 @@ var app = express();
 var port = process.env.PORT || '3002';
 
 //sets all origin
-app.use((req, res, next) => {
-     res.setheader('Access-Control-Allow-Origin', 'https://rockwavetech.com');
-     next();
-});
+app.use(cors({
+  origin: "https://rockwavetech.com"
+}));
 
 app.use(express.json()); 
 
