@@ -11,6 +11,13 @@ var app = express();
 
 var port = process.env.PORT || '3002';
 
+
+app.use(function(req, res, next) {
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+
 //sets all origin
 app.use(cors({
   origin: "https://rockwavetech.com"
