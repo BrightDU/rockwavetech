@@ -13,7 +13,7 @@ var port = process.env.PORT || '3002';
 
 //sets all origin
 app.use((req, res, next) => {
-     res.header('Access-Control-Allow-Origin', 'https://rockwavetech.com');
+     res.setheader('Access-Control-Allow-Origin', 'https://rockwavetech.com');
      next();
 });
 
