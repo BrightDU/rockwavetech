@@ -13,15 +13,15 @@ var port = process.env.PORT || '3002';
 
 
 app.use(function(req, res, next) {
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  res.setHeader('Access-Control-Allow-Origin', 'https://rockwavetech.com');
   next();
 });
 
 
 //sets all origin
-app.use(cors({
-  origin: "https://rockwavetech.com"
-}));
+// app.use(cors({
+//   origin: "https://rockwavetech.com"
+// }));
 
 app.use(express.json()); 
 
@@ -37,7 +37,7 @@ var transporter = nodemailer.createTransport({
      }
 });
 
-app.post("/api/send_email/", function(req, res) {
+app.post("/api/send_email/", cors(), function(req, res) {
     
   res.set("Content-Type", "application/json");
 
