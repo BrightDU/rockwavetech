@@ -14,6 +14,8 @@ var port = process.env.PORT || '3002';
 
 app.use(function(req, res, next) {
   res.setHeader('Access-Control-Allow-Origin', 'https://rockwavetech.com');
+  res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
   next();
 });
 
