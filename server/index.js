@@ -19,10 +19,28 @@ var port = process.env.PORT || '3002';
 //   next();
 // });
 
+// var corsOptions = {
+//   origin: 'https:rockwavetech.com',
+//   optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+// }
+
+// Set up a whitelist and check against it:
+var whitelist = ['https:rockwavetech.com', 'https:rockwavetech.herokuapp.com']
+
+//Setting up corsoption
 var corsOptions = {
-  origin: 'https:rockwavetech.com',
-  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  origin: function (origin, callback) {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true)
+    } else {
+      callback(new Error('Not allowed by CORS'))
+    }
+  }
 }
+
+// Then pass them to cors:
+app.use(cors(corsOptions));
+
 app.use(express.json()); 
 
 //serves our app. from the build directory for routing.
@@ -37,7 +55,7 @@ var transporter = nodemailer.createTransport({
      }
 });
 
-app.post("/api/send_email/", cors(corsOptions), function(req, res) {
+app.post("/api/send_email/", function(req, res) {
     
   res.set("Content-Type", "application/json");
 
