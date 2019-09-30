@@ -12,19 +12,17 @@ var app = express();
 var port = process.env.PORT || '3002';
 
 
-app.use(function(req, res, next) {
-  res.setHeader('Access-Control-Allow-Origin', 'https://rockwavetech.com');
-  res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
-  res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
-  next();
-});
+// app.use(function(req, res, next) {
+//   res.setHeader('Access-Control-Allow-Origin', 'https://rockwavetech.com');
+//   res.setHeader('Access-Control-Allow-Methods', 'POST,GET,OPTIONS,PUT,DELETE');
+//   res.setHeader('Access-Control-Allow-Headers', 'Content-Type,Accept');
+//   next();
+// });
 
-
-//sets all origin
-// app.use(cors({
-//   origin: "https://rockwavetech.com"
-// }));
-
+var corsOptions = {
+  origin: 'https:rockwavetech.com',
+  optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+}
 app.use(express.json()); 
 
 //serves our app. from the build directory for routing.
@@ -39,7 +37,7 @@ var transporter = nodemailer.createTransport({
      }
 });
 
-app.post("/api/send_email/", cors(), function(req, res) {
+app.post("/api/send_email/", cors(corsOptions), function(req, res) {
     
   res.set("Content-Type", "application/json");
 
