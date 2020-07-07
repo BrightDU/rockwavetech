@@ -77,10 +77,21 @@ class Header extends Component {
                     </NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink className="nav-link" to="#">
-                    <span className="linkk">| </span><span className="linkk"> Login </span>
+                    <NavLink className="nav-link" to="/admin">
+                         <span className="linkk"></span>
                     </NavLink>
                 </NavItem>
+                {/* 
+                <NavItem>
+                    <NavLink className="nav-link" to="/dashboard/edit">
+                         <span className="linkk"> Edit </span>
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="nav-link" to="/dashboard/upload">
+                         <span className="linkk"> Upload </span>
+                    </NavLink>
+                </NavItem> */}
                 </Nav>
             </Collapse>
             </div>

@@ -7,7 +7,13 @@ import Contact from './contact';
 import Footer from './footer';
 import { Switch, Route, Redirect, withRouter } from 'react-router-dom'; 
 import RockwaveImageGallery from './rockwavegallery';
-import Quotation from './quote';
+import Upload from './dashboard/upload';
+import EditImage from './dashboard/editImage';
+import DeleteImage from './dashboard/deleteImage';
+import Images from './dashboard/images';
+import Dashboard from './dashboard/index';
+import Login from './dashboard/login';
+
 
 class Main extends Component {
     constructor(props){
@@ -21,45 +27,74 @@ class Main extends Component {
 
     render(){
 
-        const HomePage = () => {
-            return(
-                <Home />
-            );
-        }
+        // const HomePage = () => {
+        //     return(
+        //         <Home />
+        //     );
+        // }
 
-        const Quotation = () => {
-            return(
-                <Quotation />
-            );
-        }
+        // const Quotation = () => {
+        //     return(
+        //         <Quotation />
+        //     );
+        // }
 
-        const AboutPage = () => {
-            return(
-                <About />
-            );
-        }
+        // const AboutPage = () => {
+        //     return(
+        //         <About />
+        //     );
+        // }
 
-        const ImageGallery = () => {
-            return(
-                <RockwaveImageGallery />
-            );
-        }
+        // const ImageGallery = () => {
+        //     return(
+        //         <RockwaveImageGallery />
+        //     );
+        // }
 
-        const ContactPage = () => {
-            return(
-                <Contact />
-            );
-        }
+        // const ContactPage = () => {
+        //     return(
+        //         <Contact />
+        //     );
+        // }
+
+        // const Dashboard = () => {
+        //     return(
+        //         <Dashboard />
+        //     );
+        // }
+
+        // const Upload = () => {
+        //     return(
+        //         <Upload />
+        //     );
+        // }
+
+        // const Images = () => {
+        //     return(
+        //         <Images />
+        //     );
+        // }
+
+        // const EditImage = () => {
+        //     return(
+        //         <EditImage />
+        //     );
+        // }
 
         return(
             <div className="App">
                 <Header />
                 <Switch>
-                  <Route path="/home" component={HomePage} />
-                  <Route path="/aboutus" component={AboutPage} />
-                  <Route path="/gallery" component={ImageGallery} />
-                  <Route path="/contactus" component={ContactPage} />
-                  <Route path="/quote" component={Quotation} />
+                  <Route path="/home" component={Home} />
+                  <Route path="/aboutus" component={About} />
+                  <Route path="/gallery" component={RockwaveImageGallery} />
+                  <Route path="/contactus" component={Contact} />
+                  <Route path="/admin" component={Login} />
+                  <Route path="/dashboard" component={Dashboard} />
+                  <Route path="/dashboard/upload" component={Upload} />
+                  <Route path="/dashboard/edit:id" component={EditImage} />
+                  <Route path="/dashboard/delete:id" component={DeleteImage} />
+                  <Route path="/dashboard/images" component={Images} />
                   <Redirect to="/home" />
                 </Switch>
                 <Footer />
