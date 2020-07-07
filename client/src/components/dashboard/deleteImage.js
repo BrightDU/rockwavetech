@@ -5,7 +5,7 @@ class DeleteImage extends Component {
     render(){
         return(
             <div className="container">
-               DELETE SINGLE IMAGE COMPONENT
+               DELETE SINGLE IMAGE COMPONENT mike changed
             </div> 
         );
     }
