@@ -90,8 +90,8 @@ class Main extends Component {
                   <Route path="/gallery" component={RockwaveImageGallery} />
                   <Route path="/contactus" component={Contact} />
                   <Route path="/admin" component={Login} />
-                  <Route path="/dashboard" component={Dashboard} />
-                  <Route path="/dashboard/upload" component={Upload} />
+                  <Route path="/dashboard" exact component={Dashboard} />
+                  <Route path="/dashboard/upload"  component={Upload} />
                   <Route path="/dashboard/edit:id" component={EditImage} />
                   <Route path="/dashboard/delete:id" component={DeleteImage} />
                   <Route path="/dashboard/images" component={Images} />

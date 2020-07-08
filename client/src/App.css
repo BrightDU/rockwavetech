@@ -298,3 +298,15 @@ span.banner_txt {
   color: black;
   text-decoration: none;
 }
+
+
+/* Dashboard CSS */
+
+.min-height{
+  min-height: 80vh;
+}
+
+.btn-u {
+  background-color: "#ff9900";
+  color: #fff;
+}
