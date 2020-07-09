@@ -1,24 +1,26 @@
 import React, { Component } from 'react';
 import {useState} from 'react'
 import { Button, Form, FormGroup, Label, Input, CustomInput, Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
+
 class Upload extends Component {
     // constructor(props){
     //     super(props);
 
-    //     [this.modal, this.setModal] =  useState(false);
+        
+    //     const  [modal, setModal] =  useState(false);
     //     this.toggle = this.toggle.bind(this);
 
     // }
     
     
-    // toggle(){ this.setModal(!this.modal)};
+  
     
 
     render(){
             
-        const [modal, setModal] = false;
+        // const [modal, setModal] = false;
 
-        const toggle = () => setModal(!modal);
+        // const toggle = () => setModal(!modal);
       
       
         return(

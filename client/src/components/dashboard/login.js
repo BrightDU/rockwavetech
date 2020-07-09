@@ -1,60 +1,72 @@
-import React, {  useState, useEffect, useRef  } from 'react';
+import React, {  useState, useEffect, useRef, Component  } from 'react';
 import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
 
- function Login() {
-    const [state, setState] = useState({
-      email: '',
-      password: ''
-    });
-    const [errorMsg, setErrorMsg] = useState('');
-    const [successMsg, setSuccessMsg] = useState('');
-    const emailRef = useRef();
-    const passwordRef = useRef();
+ class Login extends Component {
+   constructor(props){
+     super(props)
+
+
+     this.state = {
+       email: "",
+       password: "",
+       errorMsg: "",
+       successMsg: "",
+     }
+   }
+    // const [state, setState] = useState({
+    //   email: '',
+    //   password: ''
+    // });
+    // const [errorMsg, setErrorMsg] = useState('');
+    // const [successMsg, setSuccessMsg] = useState('');
+    // const emailRef = useRef();
+    // const passwordRef = useRef();
   
-    const handleInputChange = event => {
+     handleInputChange = event => {
       const { name, value } = event.target;
-      setState(prevState => ({
-        ...prevState,
+      this.setState({
         [name]: value
-      }));
+      });
     };
 
-    const validateInput = () => {
-        const fields = [
-          {
-            name: 'email',
-            value: state.email,
-            message: 'Email address should not be blank.'
-          },
-          {
-            name: 'password',
-            value: state.password,
-            message: 'Password should not be blank.'
-          }
-        ];
-        const isNotFilled = fields.some(field => {
-          if (field.value.trim() === '') {
-            setErrorMsg(field.message);
-            field.name === 'email'
-              ? emailRef.current.focus()
-              : passwordRef.current.focus();
-            return true;
-          }
-          setErrorMsg('');
-          return false;
-        });
-        return isNotFilled;
-      };
+    //  validateInput = () => {
+    //     const fields = [
+    //       {
+    //         name: 'email',
+    //         value: state.email,
+    //         message: 'Email address should not be blank.'
+    //       },
+    //       {
+    //         name: 'password',
+    //         value: state.password,
+    //         message: 'Password should not be blank.'
+    //       }
+    //     ];
+    //     const isNotFilled = fields.some(field => {
+    //       if (field.value.trim() === '') {
+    //         this.setState({ errorMsg: field.message });
+    //         field.name === 'email'
+    //           ? emailRef.current.focus()
+    //           : passwordRef.current.focus();
+    //         return true;
+    //       }
+    //       this.setState({errorMsg: ""});
+    //       return false;
+    //     });
+    //     return isNotFilled;
+    //   };
     
-      const handleOnSubmit = event => {
+       handleOnSubmit = event => {
         event.preventDefault();
-        const isInvalid = validateInput();
-        if (!isInvalid) {
-          setSuccessMsg("You're good to go!");
-        } else {
-          setSuccessMsg('');
-        }
+       // const isInvalid = validateInput();
+        // if (!isInvalid) {
+        //   setSuccessMsg("You're good to go!");
+        // } else {
+        //   setSuccessMsg('');
+        // }
+        console.log(`${this.state.email} and ${this.state.password} received.`)
       };
+      render(){
         return(
             <div className="container min-height">
                 <div className="row content">
@@ -67,9 +79,10 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
                             type="email" 
                             name="email" 
                             id="Email" 
-                            ref={emailRef}
-                            value={state.username}
-                            onChange={handleInputChange}/>
+                            // ref={emailRef}
+                            value={this.state.username}
+                            onChange={this.handleInputChange}
+                            />
                     </FormGroup>
                     <FormGroup className="mb-2 mr-sm-2 mb-sm-0">
                         <Label for="Password" className="mr-sm-2">Password</Label>
@@ -77,18 +90,19 @@ import { Button, Form, FormGroup, Label, Input } from 'reactstrap';
                         type="password" 
                         name="password" 
                         id="Password"
-                        ref={passwordRef}
-                        value={state.password}
-                        onChange={handleInputChange}
+                        // ref={passwordRef}
+                        value={this.state.password}
+                        onChange={this.handleInputChange}
                         />
                     </FormGroup>
-                    <Button>Submit</Button>
+                    <Button onClick={this.handleOnSubmit}>Submit</Button>
                     </Form>
                     </div>
                     <div className="col-md-3"></div>
                 </div>
             </div> 
         );
+      }
     }
 
 
