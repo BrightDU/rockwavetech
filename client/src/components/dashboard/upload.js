@@ -1,13 +1,14 @@
-import React, { Component, useState } from 'react';
+import React, { Component } from 'react';
+import {useState} from 'react'
 import { Button, Form, FormGroup, Label, Input, CustomInput, Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
 class Upload extends Component {
-    constructor(props){
-        super(props);
+    // constructor(props){
+    //     super(props);
 
-        // [this.modal, this.setModal] =  useState(false)
-        // this.toggle = this.toggle.bind(this)
+    //     [this.modal, this.setModal] =  useState(false);
+    //     this.toggle = this.toggle.bind(this);
 
-    }
+    // }
     
     
     // toggle(){ this.setModal(!this.modal)};
@@ -15,7 +16,10 @@ class Upload extends Component {
 
     render(){
             
-          
+        const [modal, setModal] = false;
+
+        const toggle = () => setModal(!modal);
+      
       
         return(
             
@@ -27,7 +31,7 @@ class Upload extends Component {
                        <FormGroup>
                             <Input className="m-3" type="file" id="fileBrowser" name="File" />
                             <Input className="m-3" type="textarea" name="imageDescr" id="imeDescr"  placeholder="Image Description"/>
-                            <Button className="btn-u m-3" size="lg" block>Create </Button>
+                            <Button className="btn-u m-3" size="lg" blockdd>Create </Button>
                         </FormGroup>
                         </Form>  
                         {/* <Modal isOpen={this.state.modal} toggle={this.toggle()} >
