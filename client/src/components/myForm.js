@@ -140,11 +140,11 @@ class ContactForm extends Component {
                                 name="telnumber"
                                 type="text"
                                 placeholder="your number"
-                                value={this.state.telnumber}
+                                value={this.state.password}
                                 onChange={this.handleChange}
-                                valid={errors.telnumber === ''}
-                                invalid={errors.telnumber !== ''}
-                                onBlur={this.handleBlur('telnumber')}
+                                valid={errors.password === ''}
+                                invalid={errors.password !== ''}
+                                onBlur={this.handleBlur('password')}
                             />
                             <FormFeedback>{errors.telnumber}</FormFeedback>
                         </Col>
