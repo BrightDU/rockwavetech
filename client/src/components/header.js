@@ -48,17 +48,20 @@ class Header extends Component {
             backgroundColor: "#ff9900" 
         }
 
-    return(
+       
+
+    return( 
+      
         <div className="fixed-top">
         <Navbar style={headerNav} expand="md" dark alignLinks="right" >
-          <div className="container">
+          <div className="container customHeader">
             <NavbarToggler onClick={this.toggleNav} />
             <NavbarBrand href="/home"><img src={logo} width="40%" height="30%" className="img-fluid mb-4" alt="Rockwavetech logo" /></NavbarBrand> 
             <Collapse isOpen={this.state.isNavOpen} navbar>
                 <Nav style={menus} className="ml-auto" navbar>
                 <NavItem>
                     <NavLink className="nav-link" to="/home">
-                        <span className="linkk">Home </span>
+                    <span className="linkk">Home</span>
                     </NavLink>
                 </NavItem>
                 <NavItem>
@@ -78,7 +81,7 @@ class Header extends Component {
                 </NavItem>
                 <NavItem>
                     <NavLink className="nav-link" to="/admin">
-                         <span className="linkk"></span>
+                         <span className="linkk">Login</span>
                     </NavLink>
                 </NavItem>
                 {/* 

@@ -7,6 +7,7 @@ import install from './images/install.png';
 import descImage from './images/descImage.png';
 import { Loading } from './loadingComponent';
 import  ClientsComponent  from './clientsComponent';
+import ReactTypingEffect from 'react-typing-effect';
 
 const rockstyle = {
     fontSize: '50px',
@@ -38,12 +39,16 @@ class Home extends Component {
             
                 <Parallax  bgImage={require('./images/banner3_grey_overlay2.png')}>
                         <div className="bannerword" style={{ minHeight: '600px', position: "relative", zIndex: "", backgroundSize: "contain", backgroundRepeat: "no-repeat", marginTop: "40px", }}>
+                        
                         <div  style={rockstyle}>
-                            ROCKWAVE <br/>
+                        <ReactTypingEffect
+                        text={["Welcome to Rockwavetech", "The Sound Clinic"]}
+                        />
+                            {/* ROCKWAVE <br/>
                             ENGINEERING
                             <br/>
                             <h3>The Sound Clinic</h3>
-                            <hr style={hrStyle}/>
+                            <hr style={hrStyle}/> */}
                         </div>
                         </div>
                         
