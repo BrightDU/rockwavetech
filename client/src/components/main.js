@@ -10,7 +10,7 @@ import RockwaveImageGallery from './rockwavegallery';
 import Upload from './dashboard/upload';
 import EditImage from './dashboard/editImage';
 import DeleteImage from './dashboard/deleteImage';
-import Images from './dashboard/images';
+import Uploads from './dashboard/images';
 import Dashboard from './dashboard/index';
 import Login from './dashboard/login';
 
@@ -94,7 +94,7 @@ class Main extends Component {
                   <Route path="/dashboard/upload"  component={Upload} />
                   <Route path="/dashboard/edit:id" component={EditImage} />
                   <Route path="/dashboard/delete:id" component={DeleteImage} />
-                  <Route path="/dashboard/images" component={Images} />
+                  <Route path="/dashboard/images" component={Uploads} />
                   <Redirect to="/home" />
                 </Switch>
                 <Footer />

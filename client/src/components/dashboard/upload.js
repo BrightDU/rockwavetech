@@ -1,38 +1,78 @@
 import React, { Component } from 'react';
 import {useState} from 'react'
 import { Button, Form, FormGroup, Label, Input, CustomInput, Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
+import { useMutation, useQuery } from 'react-apollo';
+import { gql } from 'apollo-boost';
 
-class Upload extends Component {
-    // constructor(props){
-    //     super(props);
 
-        
-    //     const  [modal, setModal] =  useState(false);
-    //     this.toggle = this.toggle.bind(this);
+export const CREATE_UPLOAD = gql`
+  mutation createUpload($thumbnail: String, $picture: String, $description: String) {
+    createUpload(thumbnail: $thumbnail, picture: $picture, description: $description) {
+      thumbnail
+      picture
+      description
+    }
+  }
+`
 
-    // }
+const Upload = (props) => {
     
-    
-  
-    
+    //app state
+    const [thumbnail, setThumbnail] = useState('');
+    const [picture, setPicture] = useState('');
+    const [description, setDescription] = useState('');
 
-    render(){
-            
-        // const [modal, setModal] = false;
+    //handle form fields
+    const handleChange = e => {
+        const { name, type, value } = e.target;
+        setDescription(value);
+    }
 
-        // const toggle = () => setModal(!modal);
+    //handle uploads
+    const uploadFile = async e => {
+        const files = e.target.files;
+        const data = new FormData();
+
+        data.append('file', files[0]);
+        data.append('upload_preset', 'rockwavetech');
+
+        const res = await fetch('https://api.cloudinary.com/v1_1/cprojects/image/upload', {
+            method: 'POST',
+            body: data,
+        });
+        const file = await res.json();
+
+        //update state
+        console.log(file);
+    }
       
-      
+     //const { loading, error, data }  = useMutation(CREATE_UPLOAD);
+     
         return(
             
             <div className="container min-height content">
-                <div className="row  ">
+                <div className="row">
                     <div className="col-md-2 col-sm-0"></div>
                     <div className="col-md-8 col-sm-12 ">
                        <Form className="border p-4">
                        <FormGroup>
-                            <Input className="m-3" type="file" id="fileBrowser" name="File" />
-                            <Input className="m-3" type="textarea" name="imageDescr" id="imeDescr"  placeholder="Image Description"/>
+                            <Input 
+                                className="m-3"
+                                type="file" 
+                                id="file" 
+                                name="file"
+                                placeholder="Upload Image"
+                                required
+                                onChange={uploadFile} 
+                            />
+                            <Input 
+                               className="m-3" 
+                               type="textarea" 
+                               name="imageDescr" 
+                               id="imeDescr"  
+                               placeholder="Image Description"
+                               onChange={handleChange}
+                               />
                             <Button className="btn-u m-3" size="lg" blockdd>Create </Button>
                         </FormGroup>
                         </Form>  
@@ -53,8 +93,8 @@ class Upload extends Component {
                 
             </div>  
         );
-    }
 }
+
 
 
 export default Upload;

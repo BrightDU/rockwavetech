@@ -7,57 +7,51 @@ import {
     Card, CardImg, CardText, CardBody,
     CardTitle, CardSubtitle, Button
   } from 'reactstrap';
-class Images extends Component {
+
+import { Mutation, useQuery } from 'react-apollo';
+import { gql } from 'apollo-boost';
+
+
+export const UPLOADS_QUERY = gql`
+  query UploadQuery {
+    uploads {
+      id
+      url
+      description
+    }
+  }
+`
+
+
+
+
+const Uploads = (props) => {
    
-    render(){
-        return(
-            <div className="container content">
-                <div className="row">
-                    <div className="col-md-4 col-lg-4 col-sm-2">
-                    <Card>
-                    <CardImg top width="100%" src={amp} alt="Image one" />
-                    <CardBody>
-                    <CardTitle>Image Name</CardTitle>
-                    <Button className="mx-2" >Edit <FontAwesomeIcon icon={faEdit}/>  </Button>
-                    <Button className="mx-2" color="danger" >Delete <FontAwesomeIcon icon={faTrash}/></Button>
-                    </CardBody>
-                </Card>
-                    </div>
-                    <div className="col-md-4 col-lg-4 col-sm-2">
-                    <Card>
-                    <CardImg top width="100%" src={amp} alt="Image one" />
-                    <CardBody>
-                    <CardTitle>Image Name</CardTitle>
-                    <Button className="mx-2" >Edit <FontAwesomeIcon icon={faEdit}/>  </Button>
-                    <Button className="mx-2" color="danger" >Delete <FontAwesomeIcon icon={faTrash}/></Button>
-                    </CardBody>
-                </Card>
-                    </div>
-                    <div className="col-md-4 col-lg-4 col-sm-2">
-                    <Card>
-                    <CardImg top width="100%" src={amp} alt="Image one" />
-                    <CardBody>
-                    <CardTitle>Image Name</CardTitle>
-                    <Button className="mx-2" >Edit <FontAwesomeIcon icon={faEdit}/>  </Button>
-                    <Button className="mx-2" color="danger" >Delete <FontAwesomeIcon icon={faTrash}/></Button>
-                    </CardBody>
-                </Card>
-                    </div>
-                    <div className="col-md-4 col-lg-4 col-sm-2">
-                    <Card>
-                    <CardImg top width="100%" src={amp} alt="Image one" />
-                    <CardBody>
-                    <CardTitle>Image Name</CardTitle>
-                    <Button className="mx-2" >Edit <FontAwesomeIcon icon={faEdit}/>  </Button>
-                    <Button className="mx-2" color="danger" >Delete <FontAwesomeIcon icon={faTrash}/></Button>
-                    </CardBody>
-                </Card>
+    const { loading, error, data } = useQuery(UPLOADS_QUERY);
+        if(loading) { return <p>Loading....</p>}
+        if(error) { console.log(error); }
+        console.log(data);
+        return(  
+                <div className="container">
+                    <div className="row">
+                        {data.uploads.map(datum => (
+                            <div className="col-md-4 col-lg-4 col-sm-2">
+                            <Card>
+                                <CardImg top width="100%" src={datum.url} alt="Image one" />
+                                <CardBody>
+                                <CardTitle>{datum.description}</CardTitle>
+                                <Button className="mx-2" >Edit <FontAwesomeIcon icon={faEdit}/>  </Button>
+                                <Button className="mx-2" color="danger" >Delete <FontAwesomeIcon icon={faTrash}/></Button>
+                                </CardBody>
+                            </Card>
+                            </div>
+                        ))}
                     </div>
                 </div>
-            </div> 
         );
-    }
+            
 }
+    
 
 
-export default Images;
+export default Uploads;
