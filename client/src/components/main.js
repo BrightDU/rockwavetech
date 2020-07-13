@@ -84,6 +84,7 @@ class Main extends Component {
         return(
             <div className="App">
                 <Header />
+    
                 <Switch>
                   <Route path="/home" component={Home} />
                   <Route path="/aboutus" component={About} />
