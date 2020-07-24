@@ -5,7 +5,6 @@ import consult from './images/consult.png';
 import screw from './images/screw.png';
 import install from './images/install.png';
 import descImage from './images/descImage.png';
-import { Loading } from './loadingComponent';
 import  ClientsComponent  from './clientsComponent';
 import ReactTypingEffect from 'react-typing-effect';
 
@@ -37,7 +36,7 @@ class Home extends Component {
         return(
             <div> 
             
-                <Parallax  bgImage={require('./images/banner3_grey_overlay2.png')}>
+                <Parallax  bgImage={require('./images/bnr.svg')}>
                         <div className="bannerword" style={{ minHeight: '600px', position: "relative", zIndex: "", backgroundSize: "contain", backgroundRepeat: "no-repeat", marginTop: "40px", }}>
                         
                         <div  style={rockstyle}>
@@ -70,7 +69,7 @@ class Home extends Component {
         
                 
                 <Parallax   
-                    bgImage={require('./images/repairs1.jpg')}
+                    bgImage={require('./images/blue2.svg')}
                     strength={700}>
                 
                     <div style={{ height: '100%' }}> 

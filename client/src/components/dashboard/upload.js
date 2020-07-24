@@ -43,18 +43,46 @@ const Upload = (props) => {
         const file = await res.json();
 
         //update state
+        setPicture(file.secure_url);
+        setThumbnail(file.eager[0].secure_url);
         console.log(file);
     }
       
-     //const { loading, error, data }  = useMutation(CREATE_UPLOAD);
+    //upload mutation 
+    const [createUpload,  { data, loading }]  = useMutation(CREATE_UPLOAD);
      
+      
+    // const previewStyle = {
+    //     width: 150,
+    //     height: 100,
+    //     // border: 2 solid grey;
+    // }
+    
         return(
-            
+          
             <div className="container min-height content">
                 <div className="row">
                     <div className="col-md-2 col-sm-0"></div>
                     <div className="col-md-8 col-sm-12 ">
-                       <Form className="border p-4">
+                    {/*provides a nice preview for the Uploaded image. */}
+                    <div>
+                        {thumbnail && <img width="150" height="100" src={thumbnail} alt="Upload preview"/>}
+                    </div>
+                       <Form method="POST" className="border p-4"
+                        onSubmit={async e => {
+                            //prevent form from reloading
+                            e.preventDefault();
+
+                            //call mutation
+                            const resp = await createUpload({ variables: {thumbnail, picture, description}});
+                            console.log(resp);
+
+                            //clean state
+                            setThumbnail('');
+                            setPicture('');
+                            setDescription('');
+
+                        }}>
                        <FormGroup>
                             <Input 
                                 className="m-3"
@@ -73,7 +101,7 @@ const Upload = (props) => {
                                placeholder="Image Description"
                                onChange={handleChange}
                                />
-                            <Button className="btn-u m-3" size="lg" blockdd>Create </Button>
+                            <Button className="btn-u m-3" size="lg" blockdd>CREAT{loading ? 'ING...' : 'E' } </Button>
                         </FormGroup>
                         </Form>  
                         {/* <Modal isOpen={this.state.modal} toggle={this.toggle()} >

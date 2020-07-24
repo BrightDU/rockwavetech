@@ -93,8 +93,8 @@ class Main extends Component {
                   <Route path="/admin" component={Login} />
                   <Route path="/dashboard" exact component={Dashboard} />
                   <Route path="/dashboard/upload"  component={Upload} />
-                  <Route path="/dashboard/edit:id" component={EditImage} />
-                  <Route path="/dashboard/delete:id" component={DeleteImage} />
+                  <Route path="/dashboard/edit/:id" component={EditImage} />
+                  <Route path="/dashboard/delete" component={DeleteImage} />
                   <Route path="/dashboard/images" component={Uploads} />
                   <Redirect to="/home" />
                 </Switch>
