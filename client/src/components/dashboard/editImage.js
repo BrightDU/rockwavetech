@@ -15,20 +15,23 @@ export const GET_UPLOAD = gql`
       upload(id: $id){
           id
           thumbnail
-          picture
-          description
+          src
+          caption
+          thumbnailwidth
+          thumbnailheight
       }
   }
 `;
 
 //update a single upload
 export const UPDATE_UPLOAD = gql`
-    mutation editUpload($id:ID!, $thumbnail: String, $picture: String, $description: String){
-        editUpload(id: $id, thumbnail: $thumbnail, picture: $picture, description: $description){
+    mutation editUpload($id:ID!, $thumbnail: String, $src: String, $caption: String){
+        editUpload(id: $id, thumbnail: $thumbnail, src: $src, caption: $caption){
             id
             thumbnail
-            picture
-            description
+            src
+            caption
+          
         }
     }
 `; 
@@ -38,8 +41,10 @@ const EditImage = (props, {match, location}) => {
 
         //app state
         const [thumbnail, setThumbnail] = useState('');
-        const [picture, setPicture] = useState('');
-        const [description, setDescription] = useState('');
+        const [src, setsrc] = useState('');
+        const [caption, setcaption] = useState('');
+        const [thumbnailwidth, setThumbnailWidth] = useState(300);
+        const [thumbnailheight, setThumbnailHeight] = useState(250);
 
         //destructure the id from match
         const { params: { id }} = props.match;
@@ -52,7 +57,7 @@ const EditImage = (props, {match, location}) => {
         //handle form fields
         const handleChange = e => {
             const newDesc = e.target.value;
-            setDescription(newDesc);
+            setcaption(newDesc);
         }
 
         //update the cache
@@ -63,7 +68,7 @@ const EditImage = (props, {match, location}) => {
             //Put the uploads back 
             proxy.writeQuery({ query: UPLOADS_QUERY , data: {
                 ...data,
-                // description: [data.description, editUpload]
+                // caption: [data.caption, editUpload]
             }});
         }
 
@@ -77,19 +82,23 @@ const EditImage = (props, {match, location}) => {
         const handleSubmit = (e, props) => {
             e.preventDefault();
             editUpload({
-                variables: { id, description},
+                variables: { id, caption, src},
                 optimisticResponse: {
                  __typename: "Mutation",
                  editUpload: {
                      __typename: "upload_response",
                     id,
-                    description,
+                    caption,
                     thumbnail,
-                    picture
+                    src
                     
                  }
                 }
-            });
+            }).then((data) => {
+                window.Materialize.toast('Successfully Edited!', 10000,  'green rounded');
+            }).catch((data) => {
+                window.Materialize.toast('Sorry!, something went wrong, please try again later or check your internet connection.', 10000, 'red rounded');
+            })
         }
          
             
@@ -98,6 +107,9 @@ const EditImage = (props, {match, location}) => {
         return(
             <div>
                 <div className="container content">
+                    <div className="row col-md-8 col-sm-12 ">
+                        <Button onClick={() => window.history.back()} className="btn-success"><i class="material-icons">arrow_back</i></Button> 
+                    </div>
                     <div className="row">
                         <div className="col-md-3 col-sm-0"></div>
                         <div className="col-md-6 col-lg-6 col-sm-12">        
@@ -107,7 +119,7 @@ const EditImage = (props, {match, location}) => {
                             </CardBody>
                         </Card>
                         <form method="POST" onSubmit={handleSubmit}>     
-                            <Input type="textarea" name="description" id="description" defaultValue={data.upload.description} onChange={handleChange}/>
+                            <Input type="textarea" name="caption" id="caption" defaultValue={data.upload.caption} onChange={handleChange}/>
                             <Button type="submit" className="my-2" >Updat{loading ? "Updating....": "e"}</Button>
                         </form>
                         </div>

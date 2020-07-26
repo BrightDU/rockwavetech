@@ -1,5 +1,5 @@
 import React, {Component, useState} from 'react';
-import { Mutation, useQuery } from 'react-apollo';
+import { Mutation, Query, useQuery } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import PropTypes from 'prop-types';
 import Gallery from './gallery';
@@ -16,147 +16,70 @@ import image8 from './images/image8.jpg';
 import { UPLOADS_QUERY } from './dashboard/images';
 
 
+class RockwaveImageGallery extends React.Component {
+    constructor(props){
+        super(props);
 
+        this.state = {
+            images: this.props.images
+        };
 
-const RockwaveImageGallery = (props) => {
-   
-        //state
-      const  [images, setImages] = useState();
-     
-        // const onSelectImage = (index, image) => {
-        //     var images = data.uploads.slice();
-        //     var img = images[index];
-        //     if(img.hasOwnProperty("isSelected"))
-        //         img.isSelected = !img.isSelected;
-        //     else
-        //         img.isSelected = true;
+        this.onSelectImage = this.onSelectImage.bind(this);
 
-        //     setImages(images);
-        //     // this.setState({
-        //     //     images: images
-        //     // });
-        // }
+    }
 
-        // const makeGallery = (obj) => {
-        //     const all = [];
-        //     obj.forEach(datum => {
-        //         all.push({ src: datum.picture, thumbnail: datum.thumbnail, thumbnailWidth: 250, thumbnailHeight: 150, caption: datum.description})
-        //     });
-           
-        //     console.log(all);
-        //     setImages([all]);
-        // }
+    onSelectImage (index, image) {
+        var images = this.state.images.slice();
+        var img = images[index];
+        if(img.hasOwnProperty("isSelected"))
+            img.isSelected = !img.isSelected;
+        else
+            img.isSelected = true;
 
-    const { loading, error, data } = useQuery(UPLOADS_QUERY);
-    if(loading) { return <p><center>Loading....</center></p>}
-    if(error){ console.log(error)}
-    // {data && setImages([{
-    //     src: data.uploads.picture,
-    //     thumbnail: data.uploads.thumbnail,
-    //     thumbnailWidth: 300,
-    //     thumbnailHeight: 150,
-    //     caption: data.uploads.description
-    // }])}
-    //console.log(images);
-    // let all
-    // {data && data.uploads.map(datum => {
-    //     setImages({src: datum.picture, thumbnail: datum.thumbnail, thumbnailWidth: 300, thumbnailHeight: 150, caption: datum.description});
-    // })}
-    // const Images =  [
-    //     {
-    //         src: image2,
-    //         thumbnail: image2,
-    //         thumbnailWidth: 240,
-    //         thumbnailHeight: 320,
-    //         caption: "Sound configuration and installation of 4 ways, Hornteck sound system in Rhogic, (wuye Abuja."
-    //     },
-    //     {
-    //         src: image1,
-    //         thumbnail: image1,
-    //         thumbnailWidth: 320,
-    //         thumbnailHeight: 190,
-    //         caption: "Breakdown maintenance been carried out on an (M32) amplifier with bad output buses"
-    //     },
-    //     {
-    //         src: image3,
-    //         thumbnail: image3,
-    //         thumbnailWidth: 320,
-    //         thumbnailHeight: 148,
-    //         caption: "Maintenance of (QSC Monitors ) with breakowm pre_amps due to leakage of electricity."
-    //     },
-    //     {
-    //         src: image5,
-    //         thumbnail: image5,
-    //         thumbnailWidth: 320,
-    //         thumbnailHeight: 213,
-    //         isSelected: true,
-    //         caption: ""
-    //     },
-    //     {
-    //         src: image4,
-    //         thumbnail: image4,
-    //         thumbnailWidth: 248,
-    //         thumbnailHeight: 320,
-    //         caption: "A Beam 230 light with paning and tilting problem been fixed."
-    //     },
-    //     {
-    //         src: image8,
-    //         thumbnail: image8,
-    //         thumbnailWidth: 320,
-    //         thumbnailHeight: 113,
-    //         isSelected: true,
-    //         caption: ""
-    //     },
-    //     {
-    //         src: image6,
-    //         thumbnail: image6,
-    //         thumbnailWidth: 313,
-    //         thumbnailHeight: 320,
-    //         caption: "A Motif (FX8) with huming pre-amps been fixed."
-    //     },
-    //     {
-    //         src: image7,
-    //         thumbnail: image7,
-    //         thumbnailWidth: 320,
-    //         thumbnailHeight: 213,
-    //         isSelected: true,
-    //         caption: ""
-    //     }
-    // ]
-   //setImages(data.uploads);
-//    console.log(images); 
-//    console.log(data); 
-    //   const newArr = [...data.uploads];
-    //   newArr.thumbnailWidth = 300;
-    //   newArr.thumbnailHeight = 250;
+        this.setState({
+            images: images
+        });
+    }
 
-    //   console.log(newArr); 
-   return (
-            <div className="container gallery" style={{
-                display: "block",
-                marginTop: "20px",
-                minHeight: "1px",
-                width: "100%",
-                border: "1px solid #ddd",
-                overflow: "auto"}}> 
-            
-                <Gallery             
-                        images={data.uploads}
-                        // onSelectImage={onSelectImage}
-                        lightboxWidth={1536}
-                />      
-            
-            </div>
-    );
+    render () {
+        return (
+            <Query 
+                query={UPLOADS_QUERY} 
+             >
+             {({loading, error, data}) => {
+                  if(loading) return (<p><center>Loading....</center></p>);
+                  if(error){ console.log(error)}
+                  //this.setState({ images: data.uploads })
+                  //console.log(data);
+                  //console.log(this.state.images);
+                return (
+                    <div className="container gallery" style={{
+                        display: "block",
+                        marginTop: "30px",
+                        minHeight: "1px",
+                        width: "100%",
+                        border: "1px solid #ddd",
+                        overflow: "auto"}}>
+                        <Gallery
+                            images={data.uploads}
+                            onSelectImage={this.onSelectImage}
+                            lightboxWidth={1536}
+                        />
+                    </div>
+                );
+             }}
+            </Query>
+        );
+    }
 }
 
 // RockwaveImageGallery.propTypes = {
 //     images: PropTypes.arrayOf(
 //         PropTypes.shape({
-//             picture: PropTypes.string.isRequired,
+//             src: PropTypes.string.isRequired,
 //             thumbnail: PropTypes.string.isRequired,
-//             pictureset: PropTypes.array,
-//             description: PropTypes.string,
+//             srcset: PropTypes.array,
+//             caption: PropTypes.string,
 //             thumbnailWidth: PropTypes.number.isRequired,
 //             thumbnailHeight: PropTypes.number.isRequired,
 //             isSelected: PropTypes.bool
@@ -192,7 +115,7 @@ const RockwaveImageGallery = (props) => {
 // //             thumbnail: image5,
 // //             thumbnailWidth: 320,
 // //             thumbnailHeight: 213,
-// //             isSelected: true,
+// //             // isSelected: true,
 // //             caption: ""
 // //         },
 // //         {
@@ -207,7 +130,7 @@ const RockwaveImageGallery = (props) => {
 // //             thumbnail: image8,
 // //             thumbnailWidth: 320,
 // //             thumbnailHeight: 113,
-// //             isSelected: true,
+// //             // isSelected: true,
 // //             caption: ""
 // //         },
 // //         {
@@ -222,7 +145,7 @@ const RockwaveImageGallery = (props) => {
 // //             thumbnail: image7,
 // //             thumbnailWidth: 320,
 // //             thumbnailHeight: 213,
-// //             isSelected: true,
+// //             // isSelected: true,
 // //             caption: ""
 // //         }
 // //     ]

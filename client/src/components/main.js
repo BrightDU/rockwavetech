@@ -5,7 +5,7 @@ import About from './about';
 import Gallery from './gallery';
 import Contact from './contact';
 import Footer from './footer';
-import { Switch, Route, Redirect, withRouter } from 'react-router-dom'; 
+import { Switch, BrowserRouter as Router, Route,Redirect, withRouter } from 'react-router-dom'; 
 import RockwaveImageGallery from './rockwavegallery';
 import Upload from './dashboard/upload';
 import EditImage from './dashboard/editImage';

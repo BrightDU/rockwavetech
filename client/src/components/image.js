@@ -89,7 +89,7 @@ class Image extends Component {
             var viewportWidth = (this.props.item.vwidth -32);
 
             if(this.props.item.scaletwidth > this.props.height){
-                width = this.props.item.scaletwidth - 32;
+                width = this.props.item.scaletwidth -32;
                 height = Math.floor(width / ratio);
             }
             else {
@@ -149,11 +149,10 @@ class Image extends Component {
             key: "img-"+this.props.index,
             src: this.props.item.thumbnail,
             alt: alt,
-            title: this.props.item.description,
+            title: this.props.item.caption,
             style: this.thumbnailStyle(),
         };
 
-        console.log(thumbnailProps);
         var ThumbnailImageComponent = this.props.thumbnailImageComponent;
 
         return (
@@ -220,7 +219,7 @@ class Image extends Component {
                     <ThumbnailImageComponent {...this.props} imageProps={thumbnailProps} /> :
                     <img {...thumbnailProps} />}
                 </div>
-                {this.props.item.thumbnailDescription && (
+                {this.props.item.thumbnailCaption && (
                         <div className="tile-description"
                     style={{
                         background: "white",
@@ -232,7 +231,7 @@ class Image extends Component {
                         MozUserSelect: "text",
                         overflow: "hidden"
                     }}>
-                        {this.props.item.thumbnailDescription}
+                        {this.props.item.thumbnailCaption}
                     </div>
                 )}
             </div>

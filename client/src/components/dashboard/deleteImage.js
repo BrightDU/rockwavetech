@@ -41,8 +41,16 @@ const DeleteImage = (props) => {
            onClick={() => {
                const confirmResult = window.confirm("Deleting this image will remove it from your website gallery, do you want to proceed ?");
                if(confirmResult){
-                deleteUpload({ variables: { id: props.id }}).catch(err => {
-                    alert(err.message); //needs a component to handle SUCCESS
+                deleteUpload({ variables: { id: props.id },
+                   refetchQueries: {
+                      query: UPLOADS_QUERY
+                   }
+                })
+                .then((data) => {
+                    window.Materialize.toast('Image ' + props.id + ' has been Successfully Deleted!', 10000,  'green rounded');
+                })
+                .catch(err => {
+                    window.Materialize.toast('Sorry!, something went wrong, please try again later or check your internet connection.', 10000, 'red rounded');
                 });
             }
             }}

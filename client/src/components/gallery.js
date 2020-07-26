@@ -125,7 +125,7 @@ class Gallery extends Component {
         });
     }
 
-    getOnClickThumbnailFn(e) {
+    getOnClickThumbnailFn() {
         if(!this.props.onClickThumbnail && this.props.enableLightbox)
             return this.openLightbox;
         if(this.props.onClickThumbnail)
@@ -252,13 +252,13 @@ class Gallery extends Component {
     render() {
         var images = this.state.thumbnails.map((item, idx) => {
             return <Image
-            key={"Image-"+idx+"-"+item.id}
+            key={"Image-"+idx+"-"+item.src}
             item={item}
             index={idx}
             margin={this.props.margin}
             height={this.props.rowHeight}
             isSelectable={this.props.enableImageSelection}
-            onClick={(e) =>  this.getOnClickThumbnailFn}
+            onClick={this.getOnClickThumbnailFn()}
             onSelectImage={this.onSelectImage}
             tagStyle={this.props.tagStyle}
             tileViewportStyle={this.props.tileViewportStyle}
@@ -292,7 +292,7 @@ class Gallery extends Component {
             enableKeyboardInput={this.props.enableKeyboardInput}
             imageCountSeparator={this.props.imageCountSeparator}
             isOpen={this.state.lightboxIsOpen}
-            onClickImage={(e) => this.getOnClickImageFn()}
+            onClickImage={this.getOnClickImageFn()}
             onClickNext={this.getOnClickNextFn()}
             onClickPrev={this.getOnClickPrevFn()}
             showCloseButton={this.props.showCloseButton}
@@ -313,22 +313,22 @@ Gallery.displayName = 'Gallery';
 Gallery.propTypes = {
     images: PropTypes.arrayOf(
         PropTypes.shape({
-            picture: PropTypes.string.isRequired,
+            src: PropTypes.string.isRequired,
             nano: PropTypes.string,
             alt: PropTypes.string,
             thumbnail: PropTypes.string.isRequired,
-            pictureset: PropTypes.array,
-            description: PropTypes.string,
+            srcset: PropTypes.array,
+            caption: PropTypes.string,
             tags: PropTypes.arrayOf(
                 PropTypes.shape({
                     value: PropTypes.string.isRequired,
                     title: PropTypes.string.isRequired
                 })
             ),
-            // thumbnailWidth: PropTypes.number.isRequired,
-            // thumbnailHeight: PropTypes.number.isRequired,
+            thumbnailWidth: PropTypes.number.isRequired,
+            thumbnailHeight: PropTypes.number.isRequired,
             isSelected: PropTypes.bool,
-            thumbnailDescription: PropTypes.oneOfType([
+            thumbnailCaption: PropTypes.oneOfType([
                 PropTypes.string,
                 PropTypes.element
             ])

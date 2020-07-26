@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
-import {useState} from 'react'
-import { Button, Form, FormGroup, Label, Input, CustomInput, Modal, ModalHeader, ModalBody, ModalFooter, } from 'reactstrap';
 import { useMutation, useQuery } from 'react-apollo';
 import { gql } from 'apollo-boost';
+import {useState} from 'react'
+import { Button, Form, FormGroup, Input } from 'reactstrap';
 
 
 export const CREATE_UPLOAD = gql`
-  mutation createUpload($thumbnail: String, $picture: String, $description: String) {
-    createUpload(thumbnail: $thumbnail, picture: $picture, description: $description) {
+  mutation createUpload($thumbnail: String, $src: String, $caption: String, $thumbnailwidth: Int, $thumbnailheight: Int) {
+    createUpload(thumbnail: $thumbnail, src: $src, caption: $caption, thumbnailwidth: $thumbnailwidth, thumbnailheight: $thumbnailheight) {
+      src
       thumbnail
-      picture
-      description
+      thumbnailwidth
+      thumbnailheight
+      caption
     }
   }
 `
@@ -19,13 +21,15 @@ const Upload = (props) => {
     
     //app state
     const [thumbnail, setThumbnail] = useState('');
-    const [picture, setPicture] = useState('');
-    const [description, setDescription] = useState('');
+    const [src, setsrc] = useState('');
+    const [thumbnailwidth, setThumbnailWidth] = useState(300);
+    const [thumbnailheight, setThumbnailHeight] = useState(250);
+    const [caption, setcaption] = useState('');
 
     //handle form fields
     const handleChange = e => {
         const { name, type, value } = e.target;
-        setDescription(value);
+        setcaption(value);
     }
 
     //handle uploads
@@ -43,47 +47,53 @@ const Upload = (props) => {
         const file = await res.json();
 
         //update state
-        setPicture(file.secure_url);
+        setsrc(file.secure_url);
         setThumbnail(file.eager[0].secure_url);
-        console.log(file);
     }
       
     //upload mutation 
     const [createUpload,  { data, loading }]  = useMutation(CREATE_UPLOAD);
      
       
-    // const previewStyle = {
-    //     width: 150,
-    //     height: 100,
-    //     // border: 2 solid grey;
-    // }
-    
+    //clean up
+    const cleanUp = () => {
+        setThumbnail('');
+        setsrc('');
+    }
+
         return(
-          
             <div className="container min-height content">
+                <div className="row col-md-8 col-sm-12 ">
+                    <Button onClick={() => window.history.back()} className="btn-success"><i class="material-icons">arrow_back</i></Button> 
+                </div>
                 <div className="row">
                     <div className="col-md-2 col-sm-0"></div>
                     <div className="col-md-8 col-sm-12 ">
-                    {/*provides a nice preview for the Uploaded image. */}
-                    <div>
-                        {thumbnail && <img width="150" height="100" src={thumbnail} alt="Upload preview"/>}
-                    </div>
                        <Form method="POST" className="border p-4"
                         onSubmit={async e => {
                             //prevent form from reloading
                             e.preventDefault();
 
                             //call mutation
-                            const resp = await createUpload({ variables: {thumbnail, picture, description}});
+                            const resp = await createUpload({ variables: {thumbnail, src, caption, thumbnailwidth, thumbnailheight }})
+                          
+                            if(resp){                               
+                                window.Materialize.toast('Successfully created!, navigate to images page to see your new upload.', 10000,  'green rounded');
+                            } else {
+                                window.Materialize.toast('Sorry!, could not submit your upload, please try again later or check your internet connection.', 10000, 'red rounded');
+                            }
+                            
                             console.log(resp);
-
-                            //clean state
-                            setThumbnail('');
-                            setPicture('');
-                            setDescription('');
+                            cleanUp();
+                            
 
                         }}>
+                      
                        <FormGroup>
+                          <div>
+                                {thumbnail && <img width="150" height="100" src={thumbnail} 
+                                alt="Preview"/>} </div>
+                                <hr />
                             <Input 
                                 className="m-3"
                                 type="file" 
@@ -98,7 +108,8 @@ const Upload = (props) => {
                                type="textarea" 
                                name="imageDescr" 
                                id="imeDescr"  
-                               placeholder="Image Description"
+                               placeholder="Image caption"
+                               required
                                onChange={handleChange}
                                />
                             <Button className="btn-u m-3" size="lg" blockdd>CREAT{loading ? 'ING...' : 'E' } </Button>

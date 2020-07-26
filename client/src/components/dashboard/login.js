@@ -121,6 +121,7 @@ class Login extends Component {
                                 type="email" 
                                 name="email" 
                                 id="Email" 
+                                required
                                 value={email}
                                     onChange={this.handleChange}
                                     valid={errors.email === ''}
@@ -134,6 +135,7 @@ class Login extends Component {
                             type="password" 
                             name="password" 
                             id="Password"
+                            required
                             value={password}
                                     onChange={this.handleChange}
                                     valid={errors.password === ''}

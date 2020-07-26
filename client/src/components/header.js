@@ -53,74 +53,74 @@ class Header extends Component {
     return( 
         
 
-        <div>
-            <nav></nav>
-            <ul id="slide-out" class="sidenav">
-                <li>
-                    <div class="user-view">
-                        <di>
-                            <img src={logo} />
-                        </di>
-                        <a href="#company"><img class="circle" src={logo} /></a>
-                        <a href="#name"><span class="white-text name">Admin</span></a>
-                    </div>
-                </li>
-                <li><a href="/">Home</a></li>
-                <li><a href="/aboutus">About</a></li>
+        // <div>
+        //     <nav></nav>
+        //     <ul id="slide-out" class="sidenav">
+        //         <li>
+        //             <div class="user-view">
+        //                 <di>
+        //                     <img src={logo} />
+        //                 </di>
+        //                 <a href="#company"><img class="circle" src={logo} /></a>
+        //                 <a href="#name"><span class="white-text name">Admin</span></a>
+        //             </div>
+        //         </li>
+        //         <li><a href="/">Home</a></li>
+        //         <li><a href="/aboutus">About</a></li>
 
-            </ul>
-            <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        //     </ul>
+        //     <a href="#" data-target="slide-out" class="sidenav-trigger"><i class="material-icons">menu</i></a>
 
-        </div>
+        // </div>
       
-    //     <div className="fixed-top">
-    //     <Navbar style={headerNav} expand="md" dark alignLinks="right" >
-    //       <div className="container customHeader">
-    //         <NavbarToggler onClick={this.toggleNav} />
-    //         <NavbarBrand href="/home"><img src={logo} width="40%" height="30%" className="img-fluid mb-4" alt="Rockwavetech logo" /></NavbarBrand> 
-    //         <Collapse isOpen={this.state.isNavOpen} navbar>
-    //             <Nav style={menus} className="ml-auto" navbar>
-    //             <NavItem>
-    //                 <NavLink className="nav-link" to="/home">
-    //                 <span className="linkk">Home</span>
-    //                 </NavLink>
-    //             </NavItem>
-    //             <NavItem>
-    //                 <NavLink className="nav-link" to="/aboutus">
-    //                     <span className="linkk">About </span>
-    //                 </NavLink>
-    //             </NavItem>
-    //             <NavItem>
-    //                 <NavLink className="nav-link" to="/gallery">
-    //                     <span className="linkk">Gallery </span>
-    //                 </NavLink>
-    //             </NavItem>
-    //             <NavItem>
-    //                 <NavLink className="nav-link" to="/contactus">
-    //                     <span className="linkk">Contact </span>
-    //                 </NavLink>
-    //             </NavItem>
-    //             <NavItem>
-    //                 <NavLink className="nav-link" to="/admin">
-    //                      <span className="linkk">Login</span>
-    //                 </NavLink>
-    //             </NavItem>
-    //             {/* 
-    //             <NavItem>
-    //                 <NavLink className="nav-link" to="/dashboard/edit">
-    //                      <span className="linkk"> Edit </span>
-    //                 </NavLink>
-    //             </NavItem>
-    //             <NavItem>
-    //                 <NavLink className="nav-link" to="/dashboard/upload">
-    //                      <span className="linkk"> Upload </span>
-    //                 </NavLink>
-    //             </NavItem> */}
-    //             </Nav>
-    //         </Collapse>
-    //         </div>
-    //     </Navbar>
-    //   </div>
+        <div className="fixed-top">
+        <Navbar style={headerNav} expand="md" dark alignLinks="right" >
+          <div className="container customHeader">
+            <NavbarToggler onClick={this.toggleNav} />
+            <NavbarBrand href="/home"><img src={logo} width="40%" height="30%" className="img-fluid mb-4" alt="Rockwavetech logo" /></NavbarBrand> 
+            <Collapse isOpen={this.state.isNavOpen} navbar>
+                <Nav style={menus} className="ml-auto" navbar>
+                <NavItem>
+                    <NavLink className="nav-link" to="/home">
+                    <span className="linkk">Home</span>
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="nav-link" to="/aboutus">
+                        <span className="linkk">About </span>
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="nav-link" to="/gallery">
+                        <span className="linkk">Gallery </span>
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="nav-link" to="/contactus">
+                        <span className="linkk">Contact </span>
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="nav-link" to="/admin">
+                         <span className="linkk">Login</span>
+                    </NavLink>
+                </NavItem>
+                {/* 
+                <NavItem>
+                    <NavLink className="nav-link" to="/dashboard/edit">
+                         <span className="linkk"> Edit </span>
+                    </NavLink>
+                </NavItem>
+                <NavItem>
+                    <NavLink className="nav-link" to="/dashboard/upload">
+                         <span className="linkk"> Upload </span>
+                    </NavLink>
+                </NavItem> */}
+                </Nav>
+            </Collapse>
+            </div>
+        </Navbar>
+      </div>
          
         );
     }
