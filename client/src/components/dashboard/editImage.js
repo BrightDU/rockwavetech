@@ -53,7 +53,7 @@ const EditImage = (props, {match, location}) => {
         const { loading, error, data } = useQuery(GET_UPLOAD, {
             variables: { id }});
 
-        
+        //   console.log(data.upload.src);
         //handle form fields
         const handleChange = e => {
             const newDesc = e.target.value;
@@ -67,9 +67,10 @@ const EditImage = (props, {match, location}) => {
 
             //Put the uploads back 
             proxy.writeQuery({ query: UPLOADS_QUERY , data: {
-                ...data,
+               ...data,
                 // caption: [data.caption, editUpload]
             }});
+            
         }
 
        

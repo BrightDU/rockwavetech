@@ -29,10 +29,11 @@ const DeleteImage = (props) => {
         data.uploads = data.uploads.filter(upload => upload.id !== payload.data.deleteUpload.id);
 
         //Put the uploads back
-        cache.writeQuery({ query: UPLOADS_QUERY });
+        cache.writeQuery({ query: UPLOADS_QUERY, data });
     }
 
-    const [deleteUpload, { data }] = useMutation(DELETE_UPLOAD, {update: update});
+    const [deleteUpload, { data }] = useMutation(DELETE_UPLOAD, 
+        {update: update});
 
     return(
         <div className="container">
@@ -41,18 +42,17 @@ const DeleteImage = (props) => {
            onClick={() => {
                const confirmResult = window.confirm("Deleting this image will remove it from your website gallery, do you want to proceed ?");
                if(confirmResult){
-                deleteUpload({ variables: { id: props.id },
-                   refetchQueries: {
-                      query: UPLOADS_QUERY
-                   }
-                })
+                deleteUpload({ variables: { id: props.id }})
                 .then((data) => {
                     window.Materialize.toast('Image ' + props.id + ' has been Successfully Deleted!', 10000,  'green rounded');
+                })
+                .then((data) => {
+                    window.location.reload();
                 })
                 .catch(err => {
                     window.Materialize.toast('Sorry!, something went wrong, please try again later or check your internet connection.', 10000, 'red rounded');
                 });
-            }
+               }
             }}
            >
                {props.children}
