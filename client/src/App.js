@@ -9,7 +9,7 @@ import './App.css';
 
 
 const httpLink = createHttpLink({
-    uri: 'http://localhost:4000',
+    uri: 'https://rwe-server.herokuapp.com/',
     opts: {
       mode: 'no-cors',
     },
