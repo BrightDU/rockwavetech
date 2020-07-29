@@ -100,12 +100,12 @@ class Header extends Component {
                         <span className="linkk">Contact </span>
                     </NavLink>
                 </NavItem>
+                 {/* 
                 <NavItem>
                     <NavLink className="nav-link" to="/admin">
                          <span className="linkk">Login</span>
                     </NavLink>
                 </NavItem>
-                {/* 
                 <NavItem>
                     <NavLink className="nav-link" to="/dashboard/edit">
                          <span className="linkk"> Edit </span>
