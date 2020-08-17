@@ -31,7 +31,25 @@ export const UPLOADS_QUERY = gql`
 const Uploads = (props) => {
    
     const { loading, error, data } = useQuery(UPLOADS_QUERY);
-        if(loading) { return <p>Loading....</p>}
+        if(loading) { return (
+          <center>
+                <p>
+                <div class="preloader-wrapper small active">
+                  <div class="spinner-layer spinner-green-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="gap-patch">
+                      <div class="circle"></div>
+                    </div>
+                    <div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+                </p>
+          </center>
+        )}
         if(error) { console.log(error); }
         console.log(data);
         return(  

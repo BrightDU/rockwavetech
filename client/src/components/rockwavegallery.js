@@ -47,24 +47,39 @@ class RockwaveImageGallery extends React.Component {
                 query={UPLOADS_QUERY} 
              >
              {({loading, error, data}) => {
-                  if(loading) return (<p><center>Loading....</center></p>);
+                  if(loading) return (
+                    <p><center>
+                         <div class="preloader-wrapper small active">
+                            <div class="spinner-layer spinner-green-only">
+                            <div class="circle-clipper left">
+                                <div class="circle"></div>
+                            </div><div class="gap-patch">
+                                <div class="circle"></div>
+                            </div><div class="circle-clipper right">
+                                <div class="circle"></div>
+                            </div>
+                            </div>
+                        </div>
+                    </center></p>);
                   if(error){ console.log(error)}
                   //this.setState({ images: data.uploads })
                   //console.log(data);
                   //console.log(this.state.images);
                 return (
-                    <div className="container gallery" style={{
-                        display: "block",
-                        marginTop: "30px",
-                        minHeight: "1px",
-                        width: "100%",
-                        border: "1px solid #ddd",
-                        overflow: "auto"}}>
-                        <Gallery
-                            images={data.uploads}
-                            onSelectImage={this.onSelectImage}
-                            lightboxWidth={1536}
-                        />
+                    <div className="galleryContent">
+                        <div className="container gallery" style={{
+                            display: "block",
+                            marginTop: "30px",
+                            minHeight: "1px",
+                            width: "100%",
+                            border: "1px solid #ddd",
+                            overflow: "auto"}}>
+                            <Gallery
+                                images={data.uploads}
+                                onSelectImage={this.onSelectImage}
+                                lightboxWidth={1536}
+                            />
+                        </div>
                     </div>
                 );
              }}

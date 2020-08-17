@@ -41,7 +41,6 @@ const EditImage = (props, {match, location}) => {
 
         //app state
         const [thumbnail, setThumbnail] = useState('');
-        const [src, setsrc] = useState('');
         const [caption, setcaption] = useState('');
         const [thumbnailwidth, setThumbnailWidth] = useState(300);
         const [thumbnailheight, setThumbnailHeight] = useState(250);
@@ -50,16 +49,16 @@ const EditImage = (props, {match, location}) => {
         const { params: { id }} = props.match;
 
         //Query mutation
-        const { loading, error, data } = useQuery(GET_UPLOAD, {
-            variables: { id }});
-
-        //   console.log(data.upload.src);
+        const { loading, error, data } = useQuery(GET_UPLOAD, { variables: { id }});
+        
+       
         //handle form fields
         const handleChange = e => {
             const newDesc = e.target.value;
             setcaption(newDesc);
         }
 
+    
         //update the cache
         const update = (proxy, {data: { editUpload }}) => {
             //manually update the cache on the client, to sync with the server data.
@@ -77,22 +76,18 @@ const EditImage = (props, {match, location}) => {
         //Mutation mutation
         const [editUpload] = useMutation(UPDATE_UPLOAD, { update: update });
 
-
-
         //onClick handler
         const handleSubmit = (e, props) => {
             e.preventDefault();
             editUpload({
-                variables: { id, caption, src},
+                variables: { id, caption},
                 optimisticResponse: {
                  __typename: "Mutation",
                  editUpload: {
                      __typename: "upload_response",
                     id,
                     caption,
-                    thumbnail,
-                    src
-                    
+                    thumbnail,    
                  }
                 }
             }).then((data) => {
@@ -105,6 +100,7 @@ const EditImage = (props, {match, location}) => {
             
         if(loading) { return <p>Loading!....</p>}
         if(error){ console.log(error)}
+        
         return(
             <div>
                 <div className="container content">

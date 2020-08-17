@@ -3,7 +3,7 @@ import { Parallax } from 'react-parallax';
 import TestimonalCarousel from './testimonalCarousel';
 import consult from './images/consult.png';
 import screw from './images/screw.png';
-import install from './images/install.png';
+import installation from './images/installation.png';
 import descImage from './images/descImage.png';
 import  ClientsComponent  from './clientsComponent';
 import ReactTypingEffect from 'react-typing-effect';
@@ -83,7 +83,7 @@ class Home extends Component {
                                     <h3 className="wedo3 one display-4">REPAIRS</h3>
                                 </div>
                                 <div className="col-md-4 icons">
-                                    <img src={install} className="img-fluid"/>
+                                    <img src={installation} style={{width: 120, height: 120}} className="img-fluid"/>
                                     <h3 className="wedo3 two display-4">INSTALLATION</h3>
                                 </div>
                                 <div className="col-md-4 icons">
