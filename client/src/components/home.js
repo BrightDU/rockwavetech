@@ -4,7 +4,7 @@ import TestimonalCarousel from './testimonalCarousel';
 import consult from './images/consult.png';
 import screw from './images/screw.png';
 import installation from './images/installation.png';
-import descImage from './images/descImage.png';
+import descImage from './images/descImage.svg';
 import  ClientsComponent  from './clientsComponent';
 import ReactTypingEffect from 'react-typing-effect';
 
