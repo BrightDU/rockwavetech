@@ -1,5 +1,5 @@
-import React, { Component, useState } from 'react';
-import { Mutation, useQuery, useMutation } from 'react-apollo';
+import React, { useState } from 'react';
+import { useMutation } from 'react-apollo';
 import { gql } from 'apollo-boost';
 
 import { Col, Form, FormGroup, Input, Button, FormFeedback } from "reactstrap";
@@ -25,7 +25,7 @@ const ContactForm = (props) => {
     const [email, setEmail] = useState('');
     const [telnumber, setTelnumber] = useState('');
     const [feedback, setFeedback] = useState('');
-    const [touched, setTouched] = useState({ email: false, telnumber: false, feedback: false});
+   
 
     // constructor(props){
     //     super(props)

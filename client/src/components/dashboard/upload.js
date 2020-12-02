@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import { useMutation, useQuery } from 'react-apollo';
+import React from 'react';
+import { useMutation } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import {useState} from 'react'
 import { Button, Form, FormGroup, Input } from 'reactstrap';
@@ -22,13 +22,13 @@ const Upload = (props) => {
     //app state
     const [thumbnail, setThumbnail] = useState('');
     const [src, setsrc] = useState('');
-    const [thumbnailwidth, setThumbnailWidth] = useState(300);
-    const [thumbnailheight, setThumbnailHeight] = useState(250);
+    // const [thumbnailwidth, setThumbnailWidth] = useState(300);
+    // const [thumbnailheight, setThumbnailHeight] = useState(250);
     const [caption, setcaption] = useState('');
 
     //handle form fields
     const handleChange = e => {
-        const { name, type, value } = e.target;
+        const { value } = e.target;
         setcaption(value);
     }
 
@@ -52,7 +52,7 @@ const Upload = (props) => {
     }
       
     //upload mutation 
-    const [createUpload,  { data, loading }]  = useMutation(CREATE_UPLOAD);
+    const [createUpload,  { loading }]  = useMutation(CREATE_UPLOAD);
      
       
     //clean up
@@ -83,7 +83,7 @@ const Upload = (props) => {
                                 window.Materialize.toast('Sorry!, could not submit your upload, please try again later or check your internet connection.', 10000, 'red rounded');
                             }
                             
-                            console.log(resp);
+                            //console.log(resp);
                             cleanUp();
                             
 

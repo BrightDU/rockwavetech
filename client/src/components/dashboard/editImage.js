@@ -1,10 +1,10 @@
-import React, { Component, useState } from 'react';
+import React, {  useState } from 'react';
 import { useQuery, useMutation } from '@apollo/react-hooks';
 import { gql }  from 'apollo-boost';
 import { UPLOADS_QUERY } from './images';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, Input
+    Card, CardImg, CardBody,
+    Button, Input
   } from 'reactstrap';
   
 
@@ -42,8 +42,8 @@ const EditImage = (props, {match, location}) => {
         //app state
         const [thumbnail, setThumbnail] = useState('');
         const [caption, setcaption] = useState('');
-        const [thumbnailwidth, setThumbnailWidth] = useState(300);
-        const [thumbnailheight, setThumbnailHeight] = useState(250);
+        // const [thumbnailwidth, setThumbnailWidth] = useState(300);
+        // const [thumbnailheight, setThumbnailHeight] = useState(250);
 
         //destructure the id from match
         const { params: { id }} = props.match;

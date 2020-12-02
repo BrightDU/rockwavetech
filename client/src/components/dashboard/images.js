@@ -1,15 +1,15 @@
-import React, { Component } from 'react';
-import { Mutation, useQuery } from 'react-apollo';
+import React from 'react';
+import { useQuery } from 'react-apollo';
 import { gql } from 'apollo-boost';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import { faEdit } from '@fortawesome/free-solid-svg-icons'
 import { Link } from 'react-router-dom';
 import DeleteImage from './deleteImage';
 // import { Button } from 'reactstrap';
 
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button, NavItem
+    Card, CardImg, CardBody,
+    CardTitle, Button
   } from 'reactstrap';
 
 

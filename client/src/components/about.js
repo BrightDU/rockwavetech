@@ -16,7 +16,7 @@ class About extends Component {
                            
                     </div>
                     <div className="col-md-4">
-                        <img src={imgcircle} className="img-fluid rounded-circle" />
+                        <img src={imgcircle} className="img-fluid rounded-circle" alt="A man repairing a musical instrument." />
                     </div>   
                      
                 </div>

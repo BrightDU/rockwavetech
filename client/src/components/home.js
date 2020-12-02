@@ -17,10 +17,10 @@ const rockstyle = {
     color: 'orange' 
 }
 
-const hrStyle = {
-    backgroundColor: 'orange',
-    width: 200
-}
+// const hrStyle = {
+//     backgroundColor: 'orange',
+//     width: 200
+// }
 
 const tesimonalBg = {
     backgroundColor: '#ff9900',
@@ -58,7 +58,7 @@ class Home extends Component {
                 <div className="container">
                     <div className="row">           
                         <div className="col-md-6 rightdesc">
-                            <img src={descImage} className="img-fluid rounded"/>
+                            <img src={descImage} className="img-fluid rounded" alt="Man repairing a musical/sound instrument."/>
                         </div> 
                         <div className="col-md-6 leftdesc ">
                             Rockwave Engineering is an electronic maintenance lab for all kinds of Musical and light equipments. We are enthusiastic about what we do because we delight in creating a condusive atmosphere that is safe for all your sound and lighting equipments.
@@ -79,15 +79,15 @@ class Home extends Component {
                             
                             <div className="section row col-md-12 col-md-offset-2">
                                 <div className="col-md-4 icons">
-                                    <img src={screw} className="img-fluid"/>
+                                    <img src={screw} className="img-fluid" alt="an icon of a screw driver, representing repairs service"/>
                                     <h3 className="wedo3 one display-4">REPAIRS</h3>
                                 </div>
                                 <div className="col-md-4 icons">
-                                    <img src={installation} style={{width: 120, height: 120}} className="img-fluid"/>
+                                    <img src={installation} style={{width: 120, height: 120}} className="img-fluid" alt="an icon of representing installation service."/>
                                     <h3 className="wedo3 two display-4">INSTALLATION</h3>
                                 </div>
                                 <div className="col-md-4 icons">
-                                    <img src={consult} className="img-fluid"/>
+                                    <img src={consult} className="img-fluid" alt="an icon representing consultation service."/>
                                     <h3 className="wedo3 three display-4">CONSULTANCY</h3>
                                 </div>
                             </div>

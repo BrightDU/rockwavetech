@@ -1,16 +1,7 @@
-import React, {Component, useState} from 'react';
-import { Mutation, Query, useQuery } from 'react-apollo';
-import { gql } from 'apollo-boost';
-import PropTypes from 'prop-types';
+import React from 'react';
+import { Query } from 'react-apollo';
 import Gallery from './gallery';
-import image1 from './images/image1.jpg';
-import image2 from './images/image2.jpg';
-import image3 from './images/image3.jpg';
-import image4 from './images/image4.jpg';
-import image5 from './images/image5.jpg';
-import image6 from './images/image6.jpg';
-import image7 from './images/image7.jpeg';
-import image8 from './images/image8.jpg';
+
 
 
 import { UPLOADS_QUERY } from './dashboard/images';

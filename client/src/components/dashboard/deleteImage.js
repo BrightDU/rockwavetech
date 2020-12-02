@@ -1,12 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { gql } from 'apollo-boost';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEdit, faTrash } from '@fortawesome/free-solid-svg-icons'
+import {  faTrash } from '@fortawesome/free-solid-svg-icons'
 import { UPLOADS_QUERY } from './images';
 import { useMutation } from 'react-apollo';
 import {
-    Card, CardImg, CardText, CardBody,
-    CardTitle, CardSubtitle, Button
+     Button
   } from 'reactstrap';
 
 

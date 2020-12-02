@@ -18,7 +18,7 @@ class TestimonalCarousel extends Component {
         <figure className="col-md-4 snip1192">
             <blockquote>We at Getmultimedia strongly believe that every piece of gear/equipment should always function just like the manufacturer intended, that's why we have always relied on the expertise of rockwaveengineering to achieve that goal. Be it repairs or maintenance they have consistently delivered without compromise.</blockquote>
             <div className="author">
-              <img src={getm} alt="Image of Benneth Umeh"/>
+              <img src={getm}  alt="Testimony from a client by name Benneth Umeh"/>
               <h5>Benneth Umeh <span> Getmultimedia</span></h5>
             </div>
         </figure>
@@ -26,7 +26,7 @@ class TestimonalCarousel extends Component {
         <figure className="col-md-4 snip1192 hover">
           <blockquote>My relationship with Rockwave Engineering is not the typical client-vendor relationship, they are a partner. They know and understand our business and needs. Their professionalism, knowledge and commitment are unmatched. Working with Rockwaveengineering Company over the last 13 years has given me the confidence to endorse their skill.</blockquote>
           <div className="author">
-            <img src={iam} alt="Image of Sunday Madaki"/>
+            <img src={iam} alt="Testimony from a client by name Sunday Madaki" />
             <h5>Sunday Madaki<span> Innate Arts and Media Nigeria.</span></h5>
           </div>
         </figure>
@@ -34,8 +34,8 @@ class TestimonalCarousel extends Component {
         <figure className="col-md-4 snip1192">
           <blockquote>Since I came across this company I have no regrets, my equipment is always in good shape. They are professional in maintenance of musical instruments, light and sound equipments. Good customer service, try them and you will never regret it.</blockquote>
           <div className="author">
-            <img src={shedrack} alt="Image of Shadrach Esami"/>
-            <h5>Shadrach Esami<span> Company</span></h5>
+            <img src={shedrack}  alt="Testimony from a client by name Shadrach Esami"/>
+            <h5>Shadrach Esami<span> Musician </span></h5>
           </div>
         </figure>
       </div>
