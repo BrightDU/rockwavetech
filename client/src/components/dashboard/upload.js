@@ -22,8 +22,8 @@ const Upload = (props) => {
     //app state
     const [thumbnail, setThumbnail] = useState('');
     const [src, setsrc] = useState('');
-    // const [thumbnailwidth, setThumbnailWidth] = useState(300);
-    // const [thumbnailheight, setThumbnailHeight] = useState(250);
+    const [thumbnailwidth, setThumbnailWidth] = useState(300);
+    const [thumbnailheight, setThumbnailHeight] = useState(250);
     const [caption, setcaption] = useState('');
 
     //handle form fields
