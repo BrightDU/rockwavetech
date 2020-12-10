@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
+import { Switch, Route, Redirect } from 'react-router-dom'; 
 import Header from './header';
 import Home from './home';
 import About from './about';
 import Contact from './contact';
 import Footer from './footer';
-import { Switch, BrowserRouter as Route, Redirect } from 'react-router-dom'; 
 import RockwaveImageGallery from './rockwavegallery';
 import Upload from './dashboard/upload';
 import EditImage from './dashboard/editImage';
@@ -15,15 +15,6 @@ import Login from './dashboard/login';
 
 
 class Main extends Component {
-    constructor(props){
-        super(props)
-
-        this.state = {
-            isLoading: false
-        }
-    }
-
-
     render(){
 
         // const HomePage = () => {
