@@ -34,7 +34,7 @@
     "nodemailer-sendmail-transport": "^1.0.2",
     "nodemailer-smtp-transport": "^2.7.4",
     "nodemon": "^1.18.9",
-    "pug": "^2.0.3",
+    "pug": "^3.0.1",
     "q": "^1.5.1"
   },
   "devDependencies": {
